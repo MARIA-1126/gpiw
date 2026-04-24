@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Marksheet - GPIW Student Portal</title>
+    <link rel="stylesheet" href="common.css">
+
+    <link rel="stylesheet" href="marksheet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header & Navbar -->
+    <header class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="logo">
+                    <img src="pics/FreeSample-Vectorizer-io-final.svg" alt="GPIW Logo">
+                </div>
+                <div class="college-name">Government Polytechnic Institute for Women</div>
+                <div class="auth-btn">
+                    <button class="btn">Sign Out</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li class="dropdown">
+                    <a href="#" class="nav-link dropdown-toggle">Admission <span class="dropdown-icon">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="admission.html" class="nav-link">Admission Now</a></li>
+                        <li><a href="merit.html" class="nav-link">Merit List</a></li>
+                        <li><a href="hostel.html" class="nav-link">Hostel Admission</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="nav-link">Facilities</a></li>
+                <li><a href="#" class="nav-link">Faculty</a></li>
+                <li class="dropdown">
+                    <a href="#" class="nav-link dropdown-toggle active">Student Portal <span class="dropdown-icon">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="marksheet.html" class="nav-link active">View Marksheet</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Student Portal</h1>
+            <p class="hero-subtitle">View your Semester Mark Sheet</p>
+        </div>
+    </section>
+
+    <!-- Mark Sheet Lookup -->
+    <section class="section">
+        <div class="container">
+            <div class="portal-form">
+                <h2 class="section-title" style="margin-bottom: 1rem;">Enter Student ID</h2>
+                <div class="form-group">
+                    <label for="studentId">Student ID</label>
+                    <input type="text" id="studentId" class="marksheet-input" placeholder="e.g. STD001" maxlength="6">
+                </div>
+                <button class="btn btn-primary" onclick="fetchMarkSheet()" style="width: 100%; padding: 1.25rem;">View Mark Sheet</button>
+                <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--text-light);">Demo IDs: STD001 - STD005</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Marksheet -->
+    <div id="markSheetModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalBody">
+                <div class="loading">Loading Mark Sheet...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Government Polytechnic Institute for Women. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Demo data for marksheets
+        const markSheets = {
+            'STD001': {
+                name: 'Priya Sharma',
+                semester: 'Sem 1',
+                course: 'Diploma CS',
+                subjects: [
+                    {name: 'Maths', marks: 85, max: 100},
+                    {name: 'Physics', marks: 78, max: 100},
+                    {name: 'Chemistry', marks: 92, max: 100},
+                    {name: 'English', marks: 88, max: 100}
+                ],
+                total: 343,
+                percentage: '85.75%'
+            },
+            'STD002': {
+                name: 'Anita Patel',
+                semester: 'Sem 2',
+                course: 'Diploma IT',
+                subjects: [
+                    {name: 'Programming', marks: 90, max: 100},
+                    {name: 'Data Structures', marks: 82, max: 100},
+                    {name: 'DBMS', marks: 87, max: 100},
+                    {name: 'Web Tech', marks: 79, max: 100}
+                ],
+                total: 338,
+                percentage: '84.50%'
+            },
+            // More demo data...
+            'STD003': {name: 'Riya Gupta', semester: 'Sem 1', course: 'Diploma ECE', total: 320, percentage: '80%', subjects: [{name: 'Electronics', marks: 80, max: 100}, {name: 'Digital', marks: 75, max: 100}, {name: 'C++', marks: 85, max: 100}, {name: 'Maths', marks: 80, max: 100}]},
+            'STD004': {name: 'Sneha Roy', semester: 'Sem 3', course: 'Diploma Mech', total: 355, percentage: '88.75%', subjects: [{name: 'Thermodynamics', marks: 92, max: 100}, {name: 'Mechanics', marks: 89, max: 100}, {name: 'Workshop', marks: 87, max: 100}, {name: 'Drawing', marks: 87, max: 100}]},
+            'STD005': {name: 'Meera Singh', semester: 'Sem 1', course: 'Diploma CS', total: 312, percentage: '78%', subjects: [{name: 'Maths', marks: 76, max: 100}, {name: 'Physics', marks: 72, max: 100}, {name: 'Chemistry', marks: 82, max: 100}, {name: 'English', marks: 82, max: 100}]}
+        };
+
+        function fetchMarkSheet() {
+            const id = document.getElementById('studentId').value.toUpperCase().trim();
+            if (!id) return alert('Please enter Student ID');
+            
+            const modal = document.getElementById('markSheetModal');
+            const body = document.getElementById('modalBody');
+            body.innerHTML = '<div class="loading">Fetching Mark Sheet...</div>';
+            modal.style.display = 'block';
+
+            setTimeout(() => {
+                const data = markSheets[id];
+                if (data) {
+                    let table = `
+                        <h3>Mark Sheet - ${data.name}</h3>
+                        <p><strong>Course:</strong> ${data.course} | <strong>Semester:</strong> ${data.semester}</p>
+                        <table class="marks-table">
+                            <thead><tr><th>Subject</th><th>Marks</th><th>Max</th><th>%</th></tr></thead>
+                            <tbody>`;
+                    data.subjects.forEach(sub => {
+                        const perc = ((sub.marks / sub.max) * 100).toFixed(1);
+                        table += `<tr><td>${sub.name}</td><td>${sub.marks}</td><td>${sub.max}</td><td>${perc}%</td></tr>`;
+                    });
+                    table += `</tbody></table>
+                        <p><strong>Total: ${data.total}/${data.subjects.length * 100} | Percentage: ${data.percentage}</strong></p>
+                        <p style="color: green; font-weight: bold; font-size: 1.2rem;">Result: PASS</p>`;
+                    body.innerHTML = table;
+                } else {
+                    body.innerHTML = '<p style="color: red; text-align: center; font-size: 1.2rem;">No record found for ID: ' + id + '<br><small>Try STD001 - STD005 for demo.</small></p>';
+                }
+            }, 1200);
+        }
+
+        function closeModal() {
+            document.getElementById('markSheetModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) closeModal();
+        };
+    </script>
+</body>
+</html>

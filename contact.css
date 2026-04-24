@@ -1,0 +1,477 @@
+/* Contact Page Specific Styles - Base in common.css */
+
+/* ========================================
+   1-2. HEADER & NAVIGATION (Identical to other pages)
+   ======================================== */
+   
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(47, 93, 59, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 8px 0;
+}
+
+.top-bar-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.logo img {
+    height: 45px;
+    width: auto;
+}
+
+.college-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-white);
+}
+
+.auth-btn {
+    margin-left: auto;
+}
+
+.btn {
+    background: var(--primary-green);
+    color: var(--text-white);
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.auth-btn .btn {
+    background: var(--accent-gold);
+    color: var(--text-dark);
+}
+
+.btn:hover {
+    background: var(--accent-gold);
+    color: var(--text-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+.navbar {
+    position: fixed;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    background: rgba(245, 241, 233, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    padding: 15px 0;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 40px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: var(--primary-green);
+    color: var(--text-white);
+}
+
+/* Section Title */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-green);
+    margin-bottom: 60px;
+}
+
+/* ========================================
+   3. CONTACT HERO (Same as about-hero)
+   ======================================== */
+.contact-hero {
+    position: relative;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    margin-top: 130px;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: -1;
+}
+
+.hero-content {
+    width: 70%;
+    color: var(--text-white);
+    text-align: left;
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-slogan {
+    font-size: 1.5rem;
+    font-weight: 300;
+    opacity: 0.95;
+}
+
+/* ========================================
+   4. QUICK CONTACT CARDS
+   ======================================== */
+.quick-contact {
+    padding: 100px 0;
+    background: var(--secondary-beige);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.contact-card {
+    text-align: center;
+    padding: 40px 30px;
+}
+
+.contact-icon {
+    margin-bottom: 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: var(--primary-green);
+    padding: 10px;
+}
+
+.contact-card h3 {
+    color: var(--primary-green);
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+}
+
+.contact-card p {
+    color: var(--text-dark);
+    line-height: 1.7;
+}
+
+/* ========================================
+   5. GOOGLE MAPS
+   ======================================== */
+.map-section {
+    padding: 100px 0;
+}
+
+.map-container {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+}
+
+/* ========================================
+   6. CONTACT FORM
+   ======================================== */
+.contact-form-section {
+    padding: 100px 0;
+    background: var(--secondary-beige);
+}
+
+.main-contact-form {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row input {
+    flex: 1;
+    padding: 18px 20px;
+    border: 2px solid #eee;
+    border-radius: 15px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-row input:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(47,93,59,0.1);
+}
+
+.main-contact-form textarea {
+    padding: 20px;
+    border: 2px solid #eee;
+    border-radius: 15px;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical;
+    transition: all 0.3s ease;
+}
+
+.main-contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(47,93,59,0.1);
+}
+
+.submit-btn {
+    align-self: center;
+    padding: 18px 50px;
+    font-size: 1.2rem;
+    background: var(--primary-green);
+    border-radius: 30px;
+}
+
+/* ========================================
+   7. OFFICE HOURS
+   ======================================== */
+.office-hours {
+    padding: 100px 0;
+}
+
+.hours-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.hours-card {
+    background: var(--text-white);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-light);
+    text-align: center;
+}
+
+.hours-card h3 {
+    color: var(--primary-green);
+    margin-bottom: 25px;
+    font-size: 1.6rem;
+}
+
+.hours-card ul {
+    list-style: none;
+    text-align: left;
+}
+
+.hours-card li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    color: var(--text-dark);
+}
+
+/* ========================================
+   8. CTA SECTION
+   ======================================== */
+.cta {
+    text-align: center;
+    padding: 100px 0;
+    background: var(--primary-green);
+    color: var(--text-white);
+}
+
+.cta-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.cta p {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.cta-btn {
+    background: var(--accent-gold);
+    color: var(--text-dark);
+    font-size: 1.2rem;
+    padding: 18px 50px;
+}
+
+/* ========================================
+   9. FOOTER (Identical to about.html)
+   ======================================== */
+.footer {
+    background: var(--primary-green);
+    color: var(--text-white);
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.footer-brand h3 {
+    color: var(--accent-gold);
+    margin-bottom: 10px;
+}
+
+.footer-links h4,
+.footer-contact h4 {
+    margin-bottom: 20px;
+    color: var(--accent-gold);
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links a {
+    color: var(--text-white);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    opacity: 0.9;
+    transition: opacity 0.3s;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+}
+
+.footer-contact p {
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    text-align: center;
+    opacity: 0.8;
+}
+
+/* ========================================
+   SHARED CARD STYLES (Extended from homepage)
+   ======================================== */
+.card {
+    background: var(--secondary-beige);
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-light);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 768px) {
+    .top-bar-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .nav-menu {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .contact-hero {
+        height: 70vh;
+        margin-top: 150px;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .hero-slogan {
+        font-size: 1.3rem;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    .hours-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .nav-menu {
+        gap: 15px;
+    }
+}
+

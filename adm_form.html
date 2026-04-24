@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Form</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="adm_form.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <!-- Header -->
+    <header class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="logo">
+                    <img src="pics/FreeSample-Vectorizer-io-final.svg" alt="GPIW Logo">
+                </div>
+                <div class="college-name">
+                    Government Polytechnic Institute For Women
+                </div>
+                <div class="auth-btn">
+                    <button class="btn signin">Sign In</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li class="dropdown">
+                    <a href="#" class="nav-link dropdown-toggle active">Admission <span class="dropdown-icon">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="admission.html" class="nav-link">Admission Now</a></li>
+                        <li><a href="merit.html" class="nav-link">Merit List</a></li>
+                        <li><a href="hostel.html" class="nav-link">Hostel Admission</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="nav-link">Facilities</a></li>
+                <li><a href="#" class="nav-link">Faculty</a></li>
+                <li class="dropdown">
+                    <a href="#" class="nav-link dropdown-toggle">Student Portal <span class="dropdown-icon">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="marksheet.html" class="nav-link">View Marksheet</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Admission Form 2024</h1>
+            <p class="hero-subtitle">Join GPIW - Empowering Women in Technical Education</p>
+        </div>
+    </section>
+
+    <!-- Form -->
+    <main class="form-container">
+        <form id="admission-form">
+            <section class="form-section">
+                <h2>👤 Personal Information</h2>
+                <div class="input-group">
+                    <label for="full-name">Full Name *</label>
+                    <input type="text" id="full-name" name="fullName" required>
+                </div>
+                <div class="input-group">
+                    <label for="father-name">Father Name *</label>
+                    <input type="text" id="father-name" name="fatherName" required>
+                </div>
+                <div class="input-group">
+                    <label for="cnic">CNIC / B-Form *</label>
+                    <input type="text" id="cnic" name="cnic" required>
+                </div>
+                <div class="input-group">
+                    <label for="dob">Date of Birth *</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+                <div class="input-group">
+                    <label>Gender *</label>
+                    <div class="radio-group">
+                        
+                        <label><input type="radio" name="gender" value="female" required> Female</label>
+                    </div>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2>🎓 Academic Details</h2>
+                <div class="input-group">
+                    <label for="qualification">Last Qualification *</label>
+                    <select id="qualification" name="qualification" required>
+                        <option value="">Select...</option>
+                        <option value="matric">Matric / SSC</option>
+                        <option value="intermediate">Intermediate / HSSC</option>
+                        <option value="bachelor">Bachelor</option>
+                        <option value="master">Master</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="marks">Marks / Percentage *</label>
+                    <input type="number" id="marks" name="marks" min="0"  step="0.01" required>
+                </div>
+                <div class="input-group">
+                    <label for="board">Board Name *</label>
+                    <input type="text" id="board" name="board" required>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2>📞 Contact Information</h2>
+                <div class="input-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="address">Address *</label>
+                    <textarea id="address" name="address" rows="4" required></textarea>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2>📚 Course Selection</h2>
+                <div class="input-group">
+                    <label for="course">Preferred Course *</label>
+                    <select id="course" name="course" required>
+                        <option value="">Select Course</option>
+                        <option value="cs">Computer Science</option>
+                        <option value="it">Information Technology</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="mechanical">Mechanical</option>
+                    </select>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2>📂 Documents</h2>
+                <div class="input-group">
+                    <label for="documents">Upload Documents</label>
+                    <input type="file" id="documents" name="documents" multiple accept=".pdf,.jpg,.png">
+                </div>
+            </section>
+
+            <button type="submit" class="submit-btn">Submit Application</button>
+        </form>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Government Polytechnic Institute for Women. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

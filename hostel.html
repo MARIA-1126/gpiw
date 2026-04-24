@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel Admission - GPIW</title>
+<link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="hostel.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header & Navbar -->
+    <header class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="logo">
+                    <img src="pics/FreeSample-Vectorizer-io-final.svg" alt="GPIW Logo">
+                </div>
+                <div class="college-name">Government Polytechnic Institute for Women</div>
+                <div class="auth-btn">
+                    <button class="btn">Sign In</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li class="dropdown">
+                    <a href="#" class="nav-link dropdown-toggle active">Admission <span class="dropdown-icon">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="admission.html" class="nav-link">Admission Now</a></li>
+                        <li><a href="merit.html" class="nav-link">Merit List</a></li>
+                        <li><a href="hostel.html" class="nav-link active">Hostel Admission</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="nav-link">Facilities</a></li>
+                <li><a href="#" class="nav-link">Faculty</a></li>
+                <li class="dropdown">
+                    <a href="#" class="nav-link dropdown-toggle">Student Portal <span class="dropdown-icon">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="marksheet.html" class="nav-link">View Marksheet</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Hostel Admission 2024</h1>
+            <p class="hero-subtitle">Safe & Comfortable Accommodation for Students</p>
+        </div>
+    </section>
+
+    <!-- Hostel Info -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Hostel Facilities</h2>
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3>Capacity</h3>
+                    <ul>
+                        <li>300 Rooms Available</li>
+                        <li>4 Students per Room</li>
+                        <li>Priority for Outstation Students</li>
+                    </ul>
+                </div>
+                <div class="content-card">
+                    <h3>Facilities</h3>
+                    <ul>
+                        <li>24/7 Security & CCTV</li>
+                        <li>Warden Supervision</li>
+                        <li>Study Rooms & Mess</li>
+                        <li>Laundry & Gym</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hostel Admission Form -->
+    <section class="section alternate-bg">
+        <div class="container">
+            <h2 class="section-title">Hostel Application Form</h2>
+            <form class="hostel-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Application ID *</label>
+                        <input type="text" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Course</label>
+                        <select>
+                            <option>Diploma Computer Science</option>
+                            <option>Diploma IT</option>
+                            <option>Diploma Electronics</option>
+                            <option>Diploma Mechanical</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Year/Semester</label>
+                        <select>
+                            <option>1st Year</option>
+                            <option>2nd Year</option>
+                            <option>3rd Year</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Permanent Address *</label>
+                        <textarea rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone *</label>
+                        <input type="tel" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group checkbox-group">
+                        <label>
+                            <input type="checkbox" required> I agree to hostel rules & regulations
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-large">Submit Application</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Fees & Dates -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Fees & Important Dates</h2>
+            <div class="process-content">
+                <div>
+                    <h3>Hostel Fees (Annual)</h3>
+                    <ul>
+                        <li>Room + Mess: ₹25,000</li>
+                        <li>Security Deposit: ₹5,000 (Refundable)</li>
+                        <li>Laundry: ₹3,000 (Optional)</li>
+                    </ul>
+                </div>
+                <div class="dates-table-container">
+                    <h3>Dates</h3>
+                    <table class="dates-table">
+                        <tr><th>Event</th><th>Date</th></tr>
+                        <tr><td>Application Start</td><td>01 Aug 2024</td></tr>
+                        <tr><td>Application End</td><td>15 Aug 2024</td></tr>
+                        <tr><td>Allotment List</td><td>20 Aug 2024</td></tr>
+                        <tr><td>Fee Payment</td><td>25 Aug 2024</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Questions about Hostel?</h2>
+            <p>Contact our warden office for more information</p>
+            <a href="contact.html" class="btn btn-secondary">Contact Warden</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Government Polytechnic Institute for Women. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

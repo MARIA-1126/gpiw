@@ -1,0 +1,386 @@
+/* Index Page Specific Styles - Base in common.css */
+
+/* 3. Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    z-index: -1;
+}
+
+.hero-content {
+    width: 60%;
+    color: var(--text-white);
+    text-align: left;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-slogan {
+    font-size: 1.5rem;
+    font-weight: 300;
+    opacity: 0.95;
+}
+
+/* 4. About Us Section */
+.about {
+    padding: 120px 0 100px;
+    background: var(--secondary-beige);
+}
+
+.about-content {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    color: var(--primary-green);
+    margin-bottom: 30px;
+}
+
+.about-text h3 {
+    color: var(--primary-green);
+    margin: 25px 0 15px;
+    font-size: 1.5rem;
+}
+
+.about-text h4 {
+    color: var(--accent-gold);
+    margin: 20px 0 10px;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-light);
+}
+
+/* 5. Academics Section */
+.academics {
+    padding: 100px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-green);
+    margin-bottom: 60px;
+}
+
+.academics-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+.card {
+    background: var(--text-white);
+    border-radius: 20px;
+    box-shadow: var(--shadow-light);
+    padding: 30px;
+    flex: 1 1 calc(33.333% - 60px);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+.card-image {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px 20px 0 0;
+    margin: -40px -30px 30px -30px;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(47,93,59,0.4), rgba(212,175,127,0.3));
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.card:hover .card-image::after {
+    opacity: 0.9;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+}
+
+.card.full-width {
+    flex: 1 1 100%;
+    max-width: none;
+}
+
+.card h3 {
+    color: var(--primary-green);
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+}
+
+/* Buttons */
+.btn  {
+    background: var(--primary-green);
+    color: var(--text-white);
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    margin-top: auto;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn:hover {
+    background: var(--accent-gold);
+    color: var(--text-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+
+.admission-btn {
+    background: var(--accent-gold);
+    color: var(--text-dark);
+    font-size: 1.2rem;
+    padding: 20px 50px;
+    text-decoration: none;
+}
+
+.admission {
+    text-align: center;
+    padding: 80px 0;
+    background: var(--primary-green);
+    color: var(--text-white);
+}
+
+.admission-title {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+}
+
+/* 7. Stats Section */
+.stats {
+    background: var(--secondary-beige);
+    padding: 60px 0;
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat h3 {
+    font-size: 3rem;
+    color: var(--primary-green);
+    margin-bottom: 10px;
+}
+
+/* 8. Facilities */
+.facilities {
+    padding: 100px 0;
+}
+
+.facilities-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.faculty-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.faculty-card h4 {
+    color: var(--accent-gold);
+    margin: 10px 0 15px 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* 9. Faculty */
+.faculty {
+    padding: 80px 0;
+    background: var(--secondary-beige);
+    text-align: center;
+}
+
+.faculty p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 10. Contact */
+.contact {
+    padding: 100px 0;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px 20px;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-green);
+}
+
+.submit-btn {
+    align-self: center;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+}
+
+/* Footer */
+.footer {
+    background: var(--primary-green);
+    color: var(--text-white);
+    text-align: center;
+    padding: 30px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .top-bar-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .college-name {
+        font-size: 1.4rem;
+    }
+    
+    .nav-menu {
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-slogan {
+        font-size: 1.2rem;
+    }
+    
+    .about-content {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .stats-grid {
+        gap: 40px;
+    }
+    
+    .stats-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .card {
+        min-width: 280px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .hero {
+        height: 80vh;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .nav-menu {
+        gap: 15px;
+    }
+    
+    .nav-link {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}

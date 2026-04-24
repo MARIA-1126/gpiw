@@ -1,0 +1,247 @@
+/* common.css - Shared styles for all pages */
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Colors - From index.css */
+:root {
+    --primary-green: #2F5D3B;
+    --secondary-beige: #F5F1E9;
+    --accent-gold: #D4AF7F;
+    --text-dark: #1F3B28;
+    --text-white: #FFFFFF;
+    --shadow-light: 0 4px 15px rgba(0,0,0,0.1);
+    --shadow-hover: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* Body - From index.css */
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+/* Container - Common */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Top Bar - Exact from index.html */
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(47, 93, 59, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 8px 0;
+}
+
+.top-bar-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+.college-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-white);
+    line-height: 1.1;
+    white-space: nowrap;
+    flex: 1;
+}
+
+.auth-btn {
+    margin-left: auto;
+}
+
+.auth-btn .btn {
+    background: var(--accent-gold);
+    color: var(--text-dark);
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.auth-btn .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Navbar - Exact from index.html */
+.navbar {
+    position: fixed;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    background: rgba(245, 241, 233, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    padding: 15px 0;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.nav-link:hover, .nav-link.active {
+    background: var(--primary-green);
+    color: var(--text-white);
+}
+
+/* Dropdown - Common */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dropdown-icon {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-icon {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--secondary-beige);
+    min-width: 200px;
+    box-shadow: var(--shadow-light);
+    border-radius: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    list-style: none;
+    padding: 0.5rem 0;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    list-style: none;
+}
+
+.dropdown-menu .nav-link {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0;
+    white-space: nowrap;
+}
+
+.dropdown-menu .nav-link:hover {
+    background: var(--primary-green);
+    color: var(--text-white);
+}
+
+/* Common Button */
+.btn {
+    background: var(--primary-green);
+    color: var(--text-white);
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn:hover {
+    background: var(--accent-gold);
+    color: var(--text-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+/* Footer - Common */
+.footer {
+    background: var(--primary-green);
+    color: var(--text-white);
+    text-align: center;
+    padding: 2.5rem 0;
+}
+
+.footer .container p {
+    opacity: 0.9;
+}
+
+/* Section Title - Common */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-green);
+    margin-bottom: 3rem;
+    font-weight: 700;
+}
+
+/* Responsive - Common */
+@media (max-width: 768px) {
+    .top-bar-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .nav-menu {
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background: rgba(245, 241, 233, 0.98);
+        margin-top: 0.5rem;
+    }
+}
+
