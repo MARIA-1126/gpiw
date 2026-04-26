@@ -21,7 +21,6 @@
                 <div class="auth-btn">
                     <button class="btn">Sign In</button>
                 </div>
-            </div>
         </div>
     </header>
 
@@ -49,6 +48,11 @@
                 </li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
@@ -61,7 +65,6 @@
                 <a href="adm_form.html" class="btn btn-primary">Apply Now</a>
                 <a href="#eligibility" class="btn btn-secondary">Check Eligibility</a>
             </div>
-        </div>
     </section>
 
     <!-- 2. Eligibility Criteria -->
@@ -85,7 +88,6 @@
                         <li>Reservation as per Govt norms</li>
                     </ul>
                 </div>
-            </div>
         </div>
     </section>
 
@@ -110,7 +112,6 @@
                     <h3>Diploma in Mechanical</h3>
                     <p>3 Years • 60 Seats</p>
                 </div>
-            </div>
         </div>
     </section>
 
@@ -137,7 +138,6 @@
                         <li>Domicile Certificate</li>
                     </ul>
                 </div>
-            </div>
         </div>
     </section>
 
@@ -170,7 +170,6 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
         </div>
     </section>
 
@@ -182,7 +181,6 @@
                 <a href="adm_form.html" class="btn btn-large btn-primary">Apply for Admission</a>
                 <a href="marksheet.html" class="btn btn-large btn-secondary">Already a Student? View Marksheet</a>
             </div>
-        </div>
     </section>
 
 
@@ -219,13 +217,34 @@
                     <p><strong>Phone:</strong> +92 300 1234567</p>
                     <p><strong>Address:</strong> Main Campus, City, Pakistan</p>
                 </div>
-            </div>
             <div class="footer-bottom">
                 <p>&copy; 2024 GPIW. All rights reserved.</p>
             </div>
-        </div>
     </footer>
-            <script src="auth.js"></script>
+
+    <!-- Side Panel -->
+    <div class="side-panel" id="sidePanel">
+        <div class="side-panel-header">
+            <h3>Menu</h3>
+            <button class="side-panel-close" id="sidePanelClose">&times;</button>
+        </div>
+        <ul class="side-panel-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About Us</a></li>
+            <li><a href="admission.html" class="nav-link active">Admission Now</a></li>
+            <li><a href="merit.html" class="nav-link">Merit List</a></li>
+            <li><a href="hostel.html" class="nav-link">Hostel Admission</a></li>
+            <li><a href="facilities.html" class="nav-link">Facilities</a></li>
+            <li><a href="faculty.html" class="nav-link">Faculty</a></li>
+            <li><a href="marksheet.html" class="nav-link">View Marksheet</a></li>
+            <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        </ul>
+    </div>
+    <div class="side-panel-overlay" id="sidePanelOverlay"></div>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top-btn" id="scrollTopBtn" title="Go to top">&#8593;</button>
+
+    <script src="auth.js"></script>
 </body>
 </html>
-

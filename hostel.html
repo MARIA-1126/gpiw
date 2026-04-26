@@ -20,7 +20,6 @@
                 <div class="auth-btn">
                     <button class="btn">Sign In</button>
                 </div>
-            </div>
         </div>
     </header>
 
@@ -48,6 +47,11 @@
                 </li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
@@ -76,7 +80,6 @@
                         <li><span class="icon">&#9733;</span> Friendly and supportive hostel staff</li>
                     </ul>
                 </div>
-            </div>
         </div>
     </section>
 
@@ -105,11 +108,9 @@
                     <p class="amount">Rs. 2000</p>
                     <p class="note">Refundable</p>
                 </div>
-            </div>
             <div class="highlight-box">
                 <p><strong>&#128073; Estimated Monthly Cost: Rs. 8000 – 10000</strong></p>
             </div>
-        </div>
     </section>
 
     <!-- Facilities Section -->
@@ -147,7 +148,6 @@
                     <h3>Study Rooms</h3>
                     <p>Quiet study areas for focused academic work.</p>
                 </div>
-            </div>
         </div>
     </section>
 
@@ -168,7 +168,6 @@
                                 <label for="hostel-father-name">Father Name *</label>
                                 <input type="text" id="hostel-father-name" name="fatherName" required>
                             </div>
-                        </div>
                         <div class="input-row">
                             <div class="input-group">
                                 <label for="hostel-cnic">CNIC / B-Form *</label>
@@ -178,7 +177,6 @@
                                 <label for="hostel-phone">Phone Number *</label>
                                 <input type="tel" id="hostel-phone" name="phone" required>
                             </div>
-                        </div>
                         <div class="input-row">
                             <div class="input-group">
                                 <label for="hostel-email">Email *</label>
@@ -188,12 +186,10 @@
                                 <label for="hostel-emergency-contact">Emergency Contact *</label>
                                 <input type="tel" id="hostel-emergency-contact" name="emergencyContact" required>
                             </div>
-                        </div>
                         <div class="input-group full-width">
                             <label for="hostel-address">Address *</label>
                             <textarea id="hostel-address" name="address" rows="3" required></textarea>
                         </div>
-                    </div>
 
                     <div class="form-section-inner">
                         <h3>&#127891; Academic Details</h3>
@@ -221,7 +217,6 @@
                                     <option value="3rd Year">3rd Year</option>
                                 </select>
                             </div>
-                        </div>
                         <div class="input-row">
                             <div class="input-group">
                                 <label for="hostel-room-preference">Room Preference *</label>
@@ -235,13 +230,11 @@
                                 <label for="hostel-documents">Upload Documents</label>
                                 <input type="file" id="hostel-documents" name="documents" multiple accept=".pdf,.jpg,.png">
                             </div>
-                        </div>
                     </div>
 
                     <button type="submit" class="submit-btn">Submit Application</button>
                 </form>
             </div>
-        </div>
     </section>
 
     <!-- Success & Receipt Section (Hidden by default) -->
@@ -264,11 +257,10 @@
                     <p><strong>Department:</strong> <span id="receipt-dept"></span></p>
                     <p><strong>Date:</strong> <span id="receipt-date"></span></p>
                 </div>
-            </div>
             <div class="receipt-actions">
                 <button class="btn btn-download" id="download-btn">&#128190; Download Receipt / ID Card</button>
-                <button type="button" class="btn btn-secondary" id="new-application-btn"></button>
-        </div>
+                <button type="button" class="btn btn-secondary" id="new-application-btn">New Application</button>
+            </div>
     </section>
 
     <!-- Footer -->
@@ -294,12 +286,33 @@
                     <p><strong>Phone:</strong> +92 300 1234567</p>
                     <p><strong>Address:</strong> Main Campus, City, Pakistan</p>
                 </div>
-            </div>
             <div class="footer-bottom">
                 <p>&copy; 2024 GPIW. All rights reserved.</p>
             </div>
-        </div>
     </footer>
+
+    <!-- Side Panel -->
+    <div class="side-panel" id="sidePanel">
+        <div class="side-panel-header">
+            <h3>Menu</h3>
+            <button class="side-panel-close" id="sidePanelClose">&times;</button>
+        </div>
+        <ul class="side-panel-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About Us</a></li>
+            <li><a href="admission.html" class="nav-link">Admission Now</a></li>
+            <li><a href="merit.html" class="nav-link">Merit List</a></li>
+            <li><a href="hostel.html" class="nav-link active">Hostel Admission</a></li>
+            <li><a href="facilities.html" class="nav-link">Facilities</a></li>
+            <li><a href="faculty.html" class="nav-link">Faculty</a></li>
+            <li><a href="marksheet.html" class="nav-link">View Marksheet</a></li>
+            <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        </ul>
+    </div>
+    <div class="side-panel-overlay" id="sidePanelOverlay"></div>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top-btn" id="scrollTopBtn" title="Go to top">&#8593;</button>
 
     <script>
         (function() {
@@ -367,7 +380,6 @@ This is a computer-generated receipt.
             });
         })();
     </script>
-        <script src="auth.js"></script>
+    <script src="auth.js"></script>
 </body>
 </html>
-

@@ -20,7 +20,6 @@
                 <div class="auth-btn">
                     <button class="btn">Sign In</button>
                 </div>
-            </div>
         </div>
     </header>
 
@@ -48,6 +47,11 @@
                 </li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
@@ -71,7 +75,6 @@
                 <p class="staff-role">Principal</p>
                 <p>With over 20 years of experience in academic leadership, Dr. Amina Rashid is committed to empowering women through quality technical education and innovation.</p>
             </div>
-        </div>
     </section>
 
     <!-- HOD Section -->
@@ -89,7 +92,6 @@
                         <p>15+ years of experience in software engineering and education.</p>
                         <span class="staff-email">shadab.islam@gpiw.edu.pk</span>
                     </div>
-                </div>
                 <div class="staff-card">
                     <div class="staff-image">
                         <img src="pics/pexels-yankrukov-8199162.jpg" alt="HOD Electronics">
@@ -100,7 +102,6 @@
                         <p>Expert in circuit design and embedded systems with industry exposure.</p>
                         <span class="staff-email">sarah.khan@gpiw.edu.pk</span>
                     </div>
-                </div>
                 <div class="staff-card">
                     <div class="staff-image">
                         <img src="pics/pexels-yankrukov-8199162.jpg" alt="HOD Fashion Design">
@@ -111,9 +112,7 @@
                         <p>Renowned fashion designer and industry consultant.</p>
                         <span class="staff-email">ayesha.ahmed@gpiw.edu.pk</span>
                     </div>
-                </div>
             </div>
-        </div>
     </section>
 
     <!-- Administrative Staff Section -->
@@ -130,7 +129,6 @@
                         <p class="staff-role">Admin Officer</p>
                         <p>Oversees daily administrative operations and student affairs with dedication.</p>
                     </div>
-                </div>
                 <div class="staff-card">
                     <div class="staff-image">
                         <img src="pics/pexels-yankrukov-8199162.jpg" alt="Office Staff">
@@ -140,7 +138,6 @@
                         <p class="staff-role">Office Staff</p>
                         <p>Handles admissions documentation and front desk coordination efficiently.</p>
                     </div>
-                </div>
                 <div class="staff-card">
                     <div class="staff-image">
                         <img src="pics/pexels-yankrukov-8199162.jpg" alt="Office Staff">
@@ -150,9 +147,7 @@
                         <p class="staff-role">Office Staff</p>
                         <p>Manages records, schedules, and internal communications for the institute.</p>
                     </div>
-                </div>
             </div>
-        </div>
     </section>
 
     <!-- Library Section -->
@@ -169,7 +164,6 @@
                         <p class="staff-role">Senior Librarian</p>
                         <p>Manages the library collection and supports students with research resources.</p>
                     </div>
-                </div>
                 <div class="staff-card">
                     <div class="staff-image">
                         <img src="pics/pexels-max-fischer-5212345.jpg" alt="Assistant Librarian">
@@ -179,9 +173,7 @@
                         <p class="staff-role">Assistant Librarian</p>
                         <p>Assists with book lending, digital cataloging, and reading programs.</p>
                     </div>
-                </div>
             </div>
-        </div>
     </section>
 
     <!-- Cafeteria Section -->
@@ -197,7 +189,6 @@
                         <h3>Mr. Khalid Mehmood</h3>
                         <p class="staff-role">Head Chef</p>
                     </div>
-                </div>
                 <div class="staff-card">
                     <div class="staff-image">
                         <img src="pics/2022-02-13.webp" alt="Chef">
@@ -206,7 +197,6 @@
                         <h3>Mr. Imran Shah</h3>
                         <p class="staff-role">Chef</p>
                     </div>
-                </div>
                 <div class="staff-card">
                     <div class="staff-image">
                         <img src="pics/2022-02-13.webp" alt="Kitchen Helper">
@@ -215,9 +205,7 @@
                         <h3>Ms. Nida Parveen</h3>
                         <p class="staff-role">Kitchen Helper</p>
                     </div>
-                </div>
             </div>
-        </div>
     </section>
 
     <!-- Footer -->
@@ -243,13 +231,34 @@
                     <p><strong>Phone:</strong> +92 300 1234567</p>
                     <p><strong>Address:</strong> Main Campus, City, Pakistan</p>
                 </div>
-            </div>
             <div class="footer-bottom">
                 <p>&copy; 2024 GPIW. All rights reserved.</p>
             </div>
-        </div>
     </footer>
-        <script src="auth.js"></script>
+
+    <!-- Side Panel -->
+    <div class="side-panel" id="sidePanel">
+        <div class="side-panel-header">
+            <h3>Menu</h3>
+            <button class="side-panel-close" id="sidePanelClose">&times;</button>
+        </div>
+        <ul class="side-panel-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About Us</a></li>
+            <li><a href="admission.html" class="nav-link">Admission Now</a></li>
+            <li><a href="merit.html" class="nav-link">Merit List</a></li>
+            <li><a href="hostel.html" class="nav-link">Hostel Admission</a></li>
+            <li><a href="facilities.html" class="nav-link">Facilities</a></li>
+            <li><a href="faculty.html" class="nav-link active">Faculty</a></li>
+            <li><a href="marksheet.html" class="nav-link">View Marksheet</a></li>
+            <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        </ul>
+    </div>
+    <div class="side-panel-overlay" id="sidePanelOverlay"></div>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top-btn" id="scrollTopBtn" title="Go to top">&#8593;</button>
+
+    <script src="auth.js"></script>
 </body>
 </html>
-

@@ -37,6 +37,7 @@
                     <div class="profile-trigger" id="profileTrigger">
                         <img src="${user.avatar || 'pics/principal.png'}" alt="${user.name}" class="profile-avatar-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
                         <div class="profile-avatar-fallback" style="display:none;">${shortName}</div>
+                    </div>
                     <div class="profile-dropdown" id="profileDropdown">
                         <div class="profile-dropdown-header">
                             <img src="${user.avatar || 'pics/principal.png'}" alt="${user.name}" class="dropdown-avatar" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
@@ -44,6 +45,7 @@
                             <div class="dropdown-user-info">
                                 <div class="dropdown-name">${escapeHtml(user.name)}</div>
                                 <div class="dropdown-email">${escapeHtml(user.email)}</div>
+                            </div>
                         </div>
                         <div class="profile-dropdown-divider"></div>
                         <a href="#" class="dropdown-item"><span>&#128100;</span>Profile</a>
@@ -51,6 +53,7 @@
                         <div class="profile-dropdown-divider"></div>
                         <button class="dropdown-item logout-item" id="logoutBtn"><span>&#128682;</span>Logout</button>
                     </div>
+                </div>
             `;
             authBtn.innerHTML = profileHTML;
 
@@ -113,10 +116,97 @@
         return div.innerHTML;
     }
 
+    // ===== Responsive Navigation =====
+    function initResponsiveNav() {
+        const hamburger = document.getElementById('hamburgerBtn');
+        const sidePanel = document.getElementById('sidePanel');
+        const sidePanelClose = document.getElementById('sidePanelClose');
+        const sidePanelOverlay = document.getElementById('sidePanelOverlay');
+
+        if (!hamburger || !sidePanel || !sidePanelOverlay) return;
+
+        function openSidePanel() {
+            sidePanel.classList.add('open');
+            sidePanelOverlay.classList.add('open');
+            hamburger.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSidePanel() {
+            sidePanel.classList.remove('open');
+            sidePanelOverlay.classList.remove('open');
+            hamburger.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (sidePanel.classList.contains('open')) {
+                closeSidePanel();
+            } else {
+                openSidePanel();
+            }
+        });
+
+        if (sidePanelClose) {
+            sidePanelClose.addEventListener('click', closeSidePanel);
+        }
+
+        sidePanelOverlay.addEventListener('click', closeSidePanel);
+
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && sidePanel.classList.contains('open')) {
+                closeSidePanel();
+            }
+        });
+
+        // Close when clicking a link inside side panel
+        const sidePanelLinks = sidePanel.querySelectorAll('.nav-link');
+        sidePanelLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                closeSidePanel();
+            });
+        });
+    }
+
+    // ===== Scroll to Top =====
+    function initScrollToTop() {
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        if (!scrollTopBtn) return;
+
+        function toggleScrollTopBtn() {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        }
+
+        window.addEventListener('scroll', toggleScrollTopBtn);
+
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Initial check
+        toggleScrollTopBtn();
+    }
+
     // ===== Init =====
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', injectAuthUI);
-    } else {
+    function init() {
         injectAuthUI();
+        initResponsiveNav();
+        initScrollToTop();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
     }
 })();
+

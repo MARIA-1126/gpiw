@@ -20,7 +20,6 @@
                 <div class="auth-btn">
                     <button class="btn">Sign In</button>
                 </div>
-            </div>
         </div>
     </header>
 
@@ -48,6 +47,11 @@
                 </li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
@@ -85,7 +89,6 @@
                 <button class="btn search-btn" onclick="viewMarksheet()">View Marksheet</button>
                 <p class="search-hint">Demo IDs: STD001 – STD005</p>
             </div>
-        </div>
     </section>
 
     <!-- Result Section -->
@@ -94,7 +97,6 @@
             <div class="result-card" id="resultCard">
                 <!-- Content injected by JS -->
             </div>
-        </div>
     </section>
 
     <!-- Footer -->
@@ -120,12 +122,33 @@
                     <p><strong>Phone:</strong> +92 300 1234567</p>
                     <p><strong>Address:</strong> Main Campus, City, Pakistan</p>
                 </div>
-            </div>
             <div class="footer-bottom">
                 <p>&copy; 2024 GPIW. All rights reserved.</p>
             </div>
-        </div>
     </footer>
+
+    <!-- Side Panel -->
+    <div class="side-panel" id="sidePanel">
+        <div class="side-panel-header">
+            <h3>Menu</h3>
+            <button class="side-panel-close" id="sidePanelClose">&times;</button>
+        </div>
+        <ul class="side-panel-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About Us</a></li>
+            <li><a href="admission.html" class="nav-link">Admission Now</a></li>
+            <li><a href="merit.html" class="nav-link">Merit List</a></li>
+            <li><a href="hostel.html" class="nav-link">Hostel Admission</a></li>
+            <li><a href="facilities.html" class="nav-link">Facilities</a></li>
+            <li><a href="faculty.html" class="nav-link">Faculty</a></li>
+            <li><a href="marksheet.html" class="nav-link active">View Marksheet</a></li>
+            <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        </ul>
+    </div>
+    <div class="side-panel-overlay" id="sidePanelOverlay"></div>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top-btn" id="scrollTopBtn" title="Go to top">&#8593;</button>
 
     <script>
         // Dummy data
@@ -253,7 +276,6 @@
                         <span>Department</span>
                         <strong>${data.department}</strong>
                     </div>
-                </div>
                 <table class="result-table">
                     <thead>
                         <tr>
@@ -278,14 +300,12 @@
                     <div class="${pass ? 'pass-status' : 'fail-status'}">
                         ${pass ? 'PASS' : 'FAIL'}
                     </div>
-                </div>
             `;
 
             resultSection.classList.add('active');
             resultSection.scrollIntoView({ behavior: 'smooth' });
         }
     </script>
-        <script src="auth.js"></script>
+    <script src="auth.js"></script>
 </body>
 </html>
-

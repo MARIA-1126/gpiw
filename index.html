@@ -56,6 +56,11 @@
                 <li><a href="contact.html" class="nav-link">Contact Us</a></li>
 
             </ul>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
@@ -291,6 +296,29 @@
             </div>
         </div>
     </footer>
-            <script src="auth.js"></script>
+    <!-- Side Panel -->
+    <div class="side-panel" id="sidePanel">
+        <div class="side-panel-header">
+            <h3>Menu</h3>
+            <button class="side-panel-close" id="sidePanelClose">&times;</button>
+        </div>
+        <ul class="side-panel-menu">
+            <li><a href="index.html" class="nav-link active">Home</a></li>
+            <li><a href="about.html" class="nav-link">About Us</a></li>
+            <li><a href="admission.html" class="nav-link">Admission Now</a></li>
+            <li><a href="merit.html" class="nav-link">Merit List</a></li>
+            <li><a href="hostel.html" class="nav-link">Hostel Admission</a></li>
+            <li><a href="facilities.html" class="nav-link">Facilities</a></li>
+            <li><a href="faculty.html" class="nav-link">Faculty</a></li>
+            <li><a href="marksheet.html" class="nav-link">View Marksheet</a></li>
+            <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        </ul>
+    </div>
+    <div class="side-panel-overlay" id="sidePanelOverlay"></div>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top-btn" id="scrollTopBtn" title="Go to top">&#8593;</button>
+
+    <script src="auth.js"></script>
 </body>
 </html>
