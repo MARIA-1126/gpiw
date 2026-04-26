@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -31,15 +31,15 @@
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
                 <li class="dropdown">
-                    <a href="admission.html" class="nav-link dropdown-toggle active">Admission <span class="dropdown-icon">▼</span></a>
+                    <a href="admission.html"  class="nav-link" Admission></a> <span class="dropdown-icon">▼</span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="admission.html" class="nav-link">Admission Now</a></li>
+                        <li><a href="admission.html"class="nav-link dropdown-toggle active">Admission Now</a></li>
                         <li><a href="merit.html" class="nav-link active">Merit List</a></li>
                         <li><a href="hostel.html" class="nav-link">Hostel Admission</a></li>
                     </ul>
                 </li>
-                <li><a href="#" class="nav-link">Facilities</a></li>
-                <li><a href="#" class="nav-link">Faculty</a></li>
+                <li><a href="facilities.html" class="nav-link">Facilities</a></li>
+                <li><a href="faculty.html" class="nav-link">Faculty</a></li>
                 <li class="dropdown">
                     <a href="#" class="nav-link dropdown-toggle">Student Portal <span class="dropdown-icon">▼</span></a>
                     <ul class="dropdown-menu">
@@ -51,119 +51,101 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Merit Search Section -->
+    <main class="merit-search">
         <div class="container">
-            <h1 class="hero-title">Merit List 2024</h1>
-            <p class="hero-subtitle">Discover the brightest minds across all departments</p>
-        </div>
-    </section>
+            <div class="search-card">
+                <h1 class="search-title">Check Merit Status</h1>
 
-    <!-- Search Section -->
-    <section class="search-section">
-        <div class="container">
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Search by name or application ID...">
-                <select id="departmentSelect">
-                    <option value="all">All Departments</option>
-                    <option value="Computer Science">Computer Science</option>
-                    <option value="IT">IT</option>
-                    <option value="Electronics">Electronics</option>
-                    <option value="Mechanical">Mechanical</option>
-                </select>
-                <button class="btn search-btn" onclick="filterToppers()">Search</button>
+                <div class="search-form">
+                    <div class="form-group">
+                        <label for="departmentSelect">Choose Your Department</label>
+                        <select id="departmentSelect">
+                            <option value="" disabled selected>Select Department</option>
+                            <option value="Computer Science">Computer Science</option>
+                            <option value="IT">IT</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Mechanical">Mechanical</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="studentId">Enter Your Student ID</label>
+                        <input type="text" id="studentId" placeholder="Enter Your Student ID">
+                    </div>
+
+                    <button class="btn search-btn" onclick="checkMerit()">Search</button>
+
+                    <p id="searchResult" class="search-result"></p>
+                </div>
             </div>
         </div>
-    </section>
-
-    <!-- Top Students Section -->
-    <section class="toppers-section">
-        <div class="container">
-            <h2 class="section-title">Department Toppers</h2>
-
-            <div class="toppers-grid" id="toppersGrid">
-                <!-- Computer Science -->
-                <div class="topper-card" data-name="Aisha Khan" data-dept="Computer Science" data-id="CS2024001">
-                    <div class="topper-badge">Topper</div>
-                    <h3 class="topper-name">Aisha Khan</h3>
-                    <p class="topper-marks">94.2%</p>
-                    <p class="topper-dept">Computer Science</p>
-                    <p class="topper-status">Status: Topper</p>
-                </div>
-
-                <!-- IT -->
-                <div class="topper-card" data-name="Fatima Zahra" data-dept="IT" data-id="IT2024003">
-                    <div class="topper-badge">Topper</div>
-                    <h3 class="topper-name">Fatima Zahra</h3>
-                    <p class="topper-marks">93.5%</p>
-                    <p class="topper-dept">IT</p>
-                    <p class="topper-status">Status: Topper</p>
-                </div>
-
-                <!-- Electronics -->
-                <div class="topper-card" data-name="Sana Ahmed" data-dept="Electronics" data-id="EL2024007">
-                    <div class="topper-badge">Topper</div>
-                    <h3 class="topper-name">Sana Ahmed</h3>
-                    <p class="topper-marks">92.8%</p>
-                    <p class="topper-dept">Electronics</p>
-                    <p class="topper-status">Status: Topper</p>
-                </div>
-
-                <!-- Mechanical -->
-                <div class="topper-card" data-name="Maryam Ali" data-dept="Mechanical" data-id="ME2024012">
-                    <div class="topper-badge">Topper</div>
-                    <h3 class="topper-name">Maryam Ali</h3>
-                    <p class="topper-marks">91.6%</p>
-                    <p class="topper-dept">Mechanical</p>
-                    <p class="topper-status">Status: Topper</p>
-                </div>
-            </div>
-
-            <p id="noResults" class="no-results" style="display: none;">No results found.</p>
-        </div>
-    </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Government Polytechnic Institute for Women. All Rights Reserved.</p>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>GPIW</h3>
+                    <p>Government Polytechnical Institute For Women</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="admission.html">Admission</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <p><strong>Email:</strong> info@gpiw.edu.pk</p>
+                    <p><strong>Phone:</strong> +92 300 1234567</p>
+                    <p><strong>Address:</strong> Main Campus, City, Pakistan</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 GPIW. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        function filterToppers() {
-            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+        document.getElementById("studentId").focus();
+        function checkMerit() {
             const dept = document.getElementById('departmentSelect').value;
-            const cards = document.querySelectorAll('.topper-card');
-            let visibleCount = 0;
+            const studentId = document.getElementById('studentId').value.trim();
+            const resultEl = document.getElementById('searchResult');
 
-            cards.forEach(card => {
-                const name = card.getAttribute('data-name').toLowerCase();
-                const id = card.getAttribute('data-id').toLowerCase();
-                const cardDept = card.getAttribute('data-dept');
+            if (!dept || !studentId) {
+                resultEl.textContent = 'Please select a department and enter your Student ID.';
+                resultEl.className = 'search-result error';
+                return;
+            }
 
-                const matchesQuery = name.includes(query) || id.includes(query);
-                const matchesDept = dept === 'all' || cardDept === dept;
+            // Simple demo logic: IDs ending in even number = found, odd = not found
+            const lastChar = studentId.slice(-1);
+            const isEven = !isNaN(lastChar) && parseInt(lastChar) % 2 === 0;
 
-                if (matchesQuery && matchesDept) {
-                    card.style.display = 'flex';
-                    visibleCount++;
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-
-            const noResults = document.getElementById('noResults');
-            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+            if (isEven) {
+                resultEl.textContent = 'Result Found';
+                resultEl.className = 'search-result success';
+            } else {
+                resultEl.textContent = 'No Record Found';
+                resultEl.className = 'search-result error';
+            }
         }
 
-        // Optional: trigger search on Enter key
-        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+        // Trigger search on Enter key in Student ID field
+        document.getElementById('studentId').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
-                filterToppers();
+                checkMerit();
             }
         });
     </script>
+        <script src="auth.js"></script>
 </body>
 </html>
 

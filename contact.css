@@ -339,62 +339,6 @@
 }
 
 /* ========================================
-   9. FOOTER (Identical to about.html)
-   ======================================== */
-.footer {
-    background: var(--primary-green);
-    color: var(--text-white);
-    padding: 60px 0 20px;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 40px;
-    margin-bottom: 30px;
-}
-
-.footer-brand h3 {
-    color: var(--accent-gold);
-    margin-bottom: 10px;
-}
-
-.footer-links h4,
-.footer-contact h4 {
-    margin-bottom: 20px;
-    color: var(--accent-gold);
-}
-
-.footer-links ul {
-    list-style: none;
-}
-
-.footer-links a {
-    color: var(--text-white);
-    text-decoration: none;
-    display: block;
-    margin-bottom: 10px;
-    opacity: 0.9;
-    transition: opacity 0.3s;
-}
-
-.footer-links a:hover {
-    opacity: 1;
-}
-
-.footer-contact p {
-    margin-bottom: 10px;
-    opacity: 0.9;
-}
-
-.footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 20px;
-    text-align: center;
-    opacity: 0.8;
-}
-
-/* ========================================
    SHARED CARD STYLES (Extended from homepage)
    ======================================== */
 .card {

@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication - GPIW Student Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== CSS Variables & Reset ===== */
+        :root {
+            --primary-green: #2F5D3B;
+            --dark-green: #1f3b28;
+            --accent-gold: #D4AF7F;
+            --secondary-beige: #F5F1E9;
+            --text-dark: #1F3B28;
+            --text-muted: #6b7280;
+            --text-white: #FFFFFF;
+            --error-red: #dc2626;
+            --success-green: #16a34a;
+            --shadow-light: 0 4px 15px rgba(0,0,0,0.1);
+            --shadow-hover: 0 8px 25px rgba(0,0,0,0.2);
+            --shadow-card: 0 20px 60px rgba(0,0,0,0.15);
+            --transition-fast: 0.2s ease;
+            --transition-medium: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #F5F1E9 0%, #e8e0d4 50%, #d4e4d9 100%);
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Decorative background elements */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(47,93,59,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -150px;
+            left: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212,175,127,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ===== Main Card Container ===== */
+        .auth-container {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 480px;
+            perspective: 1000px;
+        }
+
+        .auth-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            box-shadow: var(--shadow-card);
+            padding: 40px 36px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .auth-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-green), var(--accent-gold), var(--primary-green));
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite linear;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* ===== Logo / Branding ===== */
+        .auth-brand {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .auth-brand img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 12px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .auth-brand h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .auth-brand p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        /* ===== Tab Toggle ===== */
+        .auth-tabs {
+            display: flex;
+            background: var(--secondary-beige);
+            border-radius: 14px;
+            padding: 4px;
+            margin-bottom: 28px;
+            position: relative;
+        }
+
+        .auth-tab {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            background: transparent;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            border-radius: 12px;
+            transition: all var(--transition-medium);
+            position: relative;
+            z-index: 1;
+        }
+
+        .auth-tab:hover {
+            color: var(--text-dark);
+        }
+
+        .auth-tab.active {
+            color: var(--text-white);
+            background: var(--primary-green);
+            box-shadow: 0 2px 10px rgba(47,93,59,0.3);
+        }
+
+        /* ===== Form Container ===== */
+        .form-wrapper {
+            position: relative;
+            overflow: hidden;
+            min-height: 320px;
+        }
+
+        .auth-form {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all var(--transition-slow);
+            pointer-events: none;
+        }
+
+        .auth-form.active {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: all;
+            position: relative;
+        }
+
+        .auth-form.exit-left {
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+
+        /* ===== Input Fields ===== */
+        .input-group {
+            margin-bottom: 18px;
+            position: relative;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper input {
+            width: 100%;
+            padding: 14px 16px 14px 44px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            background: #fafafa;
+            transition: all var(--transition-medium);
+        }
+
+        .input-wrapper input:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(47,93,59,0.08);
+        }
+
+        .input-wrapper input::placeholder {
+            color: #9ca3af;
+        }
+
+        .input-wrapper input.error {
+            border-color: var(--error-red);
+            background: #fef2f2;
+        }
+
+        .input-wrapper input.error:focus {
+            box-shadow: 0 0 0 4px rgba(220,38,38,0.08);
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            transition: color var(--transition-medium);
+            pointer-events: none;
+        }
+
+        .input-wrapper input:focus ~ .input-icon {
+            color: var(--primary-green);
+        }
+
+        /* Password toggle */
+        .password-toggle {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 1.1rem;
+            padding: 4px;
+            transition: color var(--transition-fast);
+        }
+
+        .password-toggle:hover {
+            color: var(--primary-green);
+        }
+
+        /* Remember Me & Forgot Password */
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 22px;
+            font-size: 0.85rem;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .remember-me input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary-green);
+            cursor: pointer;
+        }
+
+        .forgot-password {
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color var(--transition-fast);
+        }
+
+        .forgot-password:hover {
+            color: var(--accent-gold);
+            text-decoration: underline;
+        }
+
+        /* ===== Submit Button ===== */
+        .submit-btn {
+            width: 100%;
+            padding: 14px 24px;
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            color: var(--text-white);
+            border: none;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-medium);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(47,93,59,0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* ===== Divider ===== */
+        .auth-divider {
+            display: flex;
+            align-items: center;
+            margin: 24px 0;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .auth-divider::before,
+        .auth-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #e5e7eb;
+        }
+
+        .auth-divider span {
+            padding: 0 16px;
+            font-weight: 500;
+        }
+
+        /* ===== Social Login (optional placeholder) ===== */
+        .social-login {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .social-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 2px solid #e5e7eb;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition-medium);
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        .social-btn:hover {
+            border-color: var(--primary-green);
+            color: var(--primary-green);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        /* ===== Error & Success Messages ===== */
+        .form-message {
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 16px;
+            display: none;
+            align-items: center;
+            gap: 8px;
+            animation: slideDown 0.3s ease;
+        }
+
+        .form-message.show {
+            display: flex;
+        }
+
+        .form-message.error {
+            background: #fef2f2;
+            color: var(--error-red);
+            border: 1px solid #fecaca;
+        }
+
+        .form-message.success {
+            background: #f0fdf4;
+            color: var(--success-green);
+            border: 1px solid #bbf7d0;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== Logged-in State Demo ===== */
+        .profile-demo {
+            text-align: center;
+            display: none;
+        }
+
+        .profile-demo.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .profile-avatar-large {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-gold);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 16px;
+        }
+
+        .profile-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .profile-email {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .profile-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .profile-btn {
+            padding: 10px 24px;
+            border-radius: 25px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-medium);
+            border: none;
+        }
+
+        .profile-btn.primary {
+            background: var(--primary-green);
+            color: var(--text-white);
+        }
+
+        .profile-btn.primary:hover {
+            background: var(--dark-green);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-light);
+        }
+
+        .profile-btn.secondary {
+            background: var(--secondary-beige);
+            color: var(--text-dark);
+        }
+
+        .profile-btn.secondary:hover {
+            background: #e8e0d4;
+            transform: translateY(-2px);
+        }
+
+        /* ===== Back to Home Link ===== */
+        .back-link {
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .back-link a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color var(--transition-fast);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .back-link a:hover {
+            color: var(--primary-green);
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 520px) {
+            .auth-card {
+                padding: 30px 24px;
+                border-radius: 20px;
+            }
+
+            .auth-brand h1 {
+                font-size: 1.3rem;
+            }
+
+            .form-options {
+                flex-direction: column;
+                gap: 12px;
+                align-items: flex-start;
+            }
+
+            .profile-actions {
+                flex-direction: column;
+            }
+
+            .profile-btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 380px) {
+            body {
+                padding: 12px;
+            }
+
+            .auth-card {
+                padding: 24px 18px;
+            }
+
+            .auth-tab {
+                padding: 10px 14px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="auth-container">
+        <div class="auth-card">
+            <!-- Branding -->
+            <div class="auth-brand">
+                <img src="pics/FreeSample-Vectorizer-io-final.svg" alt="GPIW Logo">
+                <h1>Student Portal</h1>
+                <p>Government Polytechnic Institute for Women</p>
+            </div>
+
+            <!-- Tab Toggle -->
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Login</button>
+                <button class="auth-tab" data-tab="signup">Sign Up</button>
+            </div>
+
+            <!-- Messages -->
+            <div class="form-message" id="formMessage"></div>
+
+            <!-- Forms Wrapper -->
+            <div class="form-wrapper" id="formWrapper">
+                <!-- Login Form -->
+                <form class="auth-form active" id="loginForm">
+                    <div class="input-group">
+                        <label for="loginEmail">Email / Student ID</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="loginEmail" placeholder="Enter your email or student ID" required>
+                            <span class="input-icon">&#9993;</span>
+                        </div>
+
+                    <div class="input-group">
+                        <label for="loginPassword">Password</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                            <span class="input-icon">&#128274;</span>
+                            <button type="button" class="password-toggle" data-target="loginPassword">&#128065;</button>
+                        </div>
+
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox" id="rememberMe">
+                            <span>Remember Me</span>
+                        </label>
+                        <a href="#" class="forgot-password" onclick="event.preventDefault(); alert('Please contact the IT office to reset your password.');">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Login</button>
+                </form>
+
+                <!-- Sign Up Form -->
+                <form class="auth-form" id="signupForm">
+                    <div class="input-group">
+                        <label for="signupName">Full Name</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="signupName" placeholder="Enter your full name" required>
+                            <span class="input-icon">&#128100;</span>
+                        </div>
+
+                    <div class="input-group">
+                        <label for="signupEmail">Email / Student ID</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="signupEmail" placeholder="Enter your email or student ID" required>
+                            <span class="input-icon">&#9993;</span>
+                        </div>
+
+                    <div class="input-group">
+                        <label for="signupPassword">Password</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="signupPassword" placeholder="Create a password" required minlength="6">
+                            <span class="input-icon">&#128274;</span>
+                            <button type="button" class="password-toggle" data-target="signupPassword">&#128065;</button>
+                        </div>
+
+                    <div class="input-group">
+                        <label for="signupConfirm">Confirm Password</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="signupConfirm" placeholder="Confirm your password" required>
+                            <span class="input-icon">&#128274;</span>
+                            <button type="button" class="password-toggle" data-target="signupConfirm">&#128065;</button>
+                        </div>
+
+                    <button type="submit" class="submit-btn">Sign Up</button>
+                </form>
+            </div>
+
+            <!-- Logged-in Profile Demo -->
+            <div class="profile-demo" id="profileDemo">
+                <img src="pics/principal.png" alt="Profile" class="profile-avatar-large" id="profileAvatar">
+                <div class="profile-name" id="profileName">User Name</div>
+                <div class="profile-email" id="profileEmail">user@example.com</div>
+                <div class="profile-actions">
+                    <button class="profile-btn primary" onclick="window.location.href='index.html'">Go to Dashboard</button>
+                    <button class="profile-btn secondary" onclick="logout()">Logout</button>
+                </div>
+
+            <!-- Divider & Social -->
+            <div class="auth-divider" id="authDivider"><span>or</span></div>
+            <div class="social-login" id="socialLogin">
+                <button class="social-btn" title="Google">G</button>
+                <button class="social-btn" title="Microsoft">M</button>
+                <button class="social-btn" title="Apple">&#127822;</button>
+            </div>
+
+            <!-- Back Link -->
+            <div class="back-link">
+                <a href="index.html">&#8592; Back to Home</a>
+            </div>
+    </div>
+
+    <script>
+        (function() {
+            'use strict';
+
+            // ===== DOM Elements =====
+            const tabs = document.querySelectorAll('.auth-tab');
+            const loginForm = document.getElementById('loginForm');
+            const signupForm = document.getElementById('signupForm');
+            const formMessage = document.getElementById('formMessage');
+            const profileDemo = document.getElementById('profileDemo');
+            const formWrapper = document.getElementById('formWrapper');
+            const authDivider = document.getElementById('authDivider');
+            const socialLogin = document.getElementById('socialLogin');
+            const profileName = document.getElementById('profileName');
+            const profileEmail = document.getElementById('profileEmail');
+
+            // ===== State =====
+            const AUTH_KEY = 'gpiw_auth';
+            const USER_KEY = 'gpiw_user';
+
+            // ===== Tab Switching =====
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const target = tab.dataset.tab;
+                    switchTab(target);
+                });
+            });
+
+            function switchTab(target) {
+                // Update tab styles
+                tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === target));
+
+                // Switch forms with animation
+                if (target === 'login') {
+                    signupForm.classList.remove('active');
+                    signupForm.classList.add('exit-left');
+                    setTimeout(() => {
+                        signupForm.classList.remove('exit-left');
+                        signupForm.style.display = 'none';
+                        loginForm.style.display = 'block';
+                        setTimeout(() => loginForm.classList.add('active'), 10);
+                    }, 300);
+                } else {
+                    loginForm.classList.remove('active');
+                    loginForm.classList.add('exit-left');
+                    setTimeout(() => {
+                        loginForm.classList.remove('exit-left');
+                        loginForm.style.display = 'none';
+                        signupForm.style.display = 'block';
+                        setTimeout(() => signupForm.classList.add('active'), 10);
+                    }, 300);
+                }
+
+                hideMessage();
+            }
+
+            // ===== Password Toggle =====
+            document.querySelectorAll('.password-toggle').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const targetId = btn.dataset.target;
+                    const input = document.getElementById(targetId);
+                    if (input.type === 'password') {
+                        input.type = 'text';
+                        btn.innerHTML = '&#128065;&#65039;';
+                    } else {
+                        input.type = 'password';
+                        btn.innerHTML = '&#128065;';
+                    }
+                });
+            });
+
+            // ===== Form Validation =====
+            function showMessage(text, type) {
+                formMessage.textContent = text;
+                formMessage.className = `form-message ${type} show`;
+            }
+
+            function hideMessage() {
+                formMessage.className = 'form-message';
+            }
+
+            function validateEmail(value) {
+                return value.length >= 3; // Simple validation for email or student ID
+            }
+
+            function validatePassword(password) {
+                return password.length >= 6;
+            }
+
+            function clearErrors() {
+                document.querySelectorAll('.input-wrapper input').forEach(input => input.classList.remove('error'));
+            }
+
+            function setError(inputId) {
+                const input = document.getElementById(inputId);
+                if (input) input.classList.add('error');
+            }
+
+            // ===== Login Handler =====
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                clearErrors();
+                hideMessage();
+
+                const email = document.getElementById('loginEmail').value.trim();
+                const password = document.getElementById('loginPassword').value;
+                const remember = document.getElementById('rememberMe').checked;
+
+                // Validation
+                let hasError = false;
+                if (!email) {
+                    setError('loginEmail');
+                    showMessage('Please enter your email or student ID.', 'error');
+                    hasError = true;
+                } else if (!validateEmail(email)) {
+                    setError('loginEmail');
+                    showMessage('Please enter a valid email or student ID.', 'error');
+                    hasError = true;
+                }
+
+                if (!password) {
+                    setError('loginPassword');
+                    if (!hasError) showMessage('Please enter your password.', 'error');
+                    hasError = true;
+                }
+
+                if (hasError) return;
+
+                // Simulate API call
+                const btn = loginForm.querySelector('.submit-btn');
+                const originalText = btn.textContent;
+                btn.disabled = true;
+                btn.textContent = 'Logging in...';
+
+                setTimeout(() => {
+                    // Store auth state
+                    const userData = {
+                        name: email.split('@')[0] || 'Student',
+                        email: email,
+                        avatar: 'pics/principal.png',
+                        loginTime: new Date().toISOString()
+                    };
+
+                    localStorage.setItem(AUTH_KEY, 'true');
+                    localStorage.setItem(USER_KEY, JSON.stringify(userData));
+
+                    btn.textContent = 'Success!';
+                    showMessage('Login successful! Redirecting...', 'success');
+
+                    setTimeout(() => {
+                        showLoggedInState(userData);
+                    }, 800);
+                }, 1200);
+            });
+
+            // ===== Sign Up Handler =====
+            signupForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                clearErrors();
+                hideMessage();
+
+                const name = document.getElementById('signupName').value.trim();
+                const email = document.getElementById('signupEmail').value.trim();
+                const password = document.getElementById('signupPassword').value;
+                const confirm = document.getElementById('signupConfirm').value;
+
+                // Validation
+                let hasError = false;
+
+                if (!name) {
+                    setError('signupName');
+                    showMessage('Please enter your full name.', 'error');
+                    hasError = true;
+                }
+
+                if (!email) {
+                    setError('signupEmail');
+                    if (!hasError) showMessage('Please enter your email or student ID.', 'error');
+                    hasError = true;
+                } else if (!validateEmail(email)) {
+                    setError('signupEmail');
+                    if (!hasError) showMessage('Please enter a valid email or student ID.', 'error');
+                    hasError = true;
+                }
+
+                if (!password) {
+                    setError('signupPassword');
+                    if (!hasError) showMessage('Please enter a password.', 'error');
+                    hasError = true;
+                } else if (!validatePassword(password)) {
+                    setError('signupPassword');
+                    if (!hasError) showMessage('Password must be at least 6 characters.', 'error');
+                    hasError = true;
+                }
+
+                if (password !== confirm) {
+                    setError('signupConfirm');
+                    if (!hasError) showMessage('Passwords do not match.', 'error');
+                    hasError = true;
+                }
+
+                if (hasError) return;
+
+                // Simulate registration
+                const btn = signupForm.querySelector('.submit-btn');
+                btn.disabled = true;
+                btn.textContent = 'Creating account...';
+
+                setTimeout(() => {
+                    const userData = {
+                        name: name,
+                        email: email,
+                        avatar: 'pics/principal.png',
+                        loginTime: new Date().toISOString()
+                    };
+
+                    localStorage.setItem(AUTH_KEY, 'true');
+                    localStorage.setItem(USER_KEY, JSON.stringify(userData));
+
+                    btn.textContent = 'Account Created!';
+                    showMessage('Account created successfully!', 'success');
+
+                    setTimeout(() => {
+                        showLoggedInState(userData);
+                    }, 800);
+                }, 1500);
+            });
+
+            // ===== Show Logged-in State =====
+            function showLoggedInState(userData) {
+                formWrapper.style.display = 'none';
+                authDivider.style.display = 'none';
+                socialLogin.style.display = 'none';
+                document.querySelector('.auth-tabs').style.display = 'none';
+
+                profileName.textContent = userData.name;
+                profileEmail.textContent = userData.email;
+                profileDemo.classList.add('show');
+            }
+
+            // ===== Logout =====
+            window.logout = function() {
+                localStorage.removeItem(AUTH_KEY);
+                localStorage.removeItem(USER_KEY);
+                location.reload();
+            };
+
+            // ===== Check Auth on Load =====
+            function checkAuth() {
+                const isLoggedIn = localStorage.getItem(AUTH_KEY) === 'true';
+                if (isLoggedIn) {
+                    try {
+                        const userData = JSON.parse(localStorage.getItem(USER_KEY));
+                        if (userData) {
+                            showLoggedInState(userData);
+                            return;
+                        }
+                    } catch (e) {
+                        localStorage.removeItem(AUTH_KEY);
+                        localStorage.removeItem(USER_KEY);
+                    }
+                }
+
+                // Default: show login form
+                signupForm.style.display = 'none';
+            }
+
+            // Initialize
+            checkAuth();
+        })();
+    </script>
+</body>
+</html>

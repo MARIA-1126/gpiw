@@ -86,17 +86,19 @@ blockquote {
    6. VISION & MISSION CARDS
    ======================================== */
 .vision-mission {
-    padding: 100px 0;
+     background: var(--secondary-beige);
+     padding: 100px 0;
 }
 
 .vm-grid {
+    
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
 }
 
 .vm-card {
-    background: var(--text-white);
+   
     padding: 50px 40px;
     border-radius: 20px;
     box-shadow: var(--shadow-light);
@@ -201,7 +203,7 @@ blockquote {
 }
 
 /* NEW: Card Images for Sports & Campus sections */
-img {
+.card img {
     max-width: 100%;
     display: block;
 }
@@ -267,62 +269,6 @@ img {
     color: var(--text-dark);
     font-size: 1.2rem;
     padding: 18px 50px;
-}
-
-/* ========================================
-   11. FOOTER
-   ======================================== */
-.footer {
-    background: var(--primary-green);
-    color: var(--text-white);
-    padding: 60px 0 20px;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 40px;
-    margin-bottom: 30px;
-}
-
-.footer-brand h3 {
-    color: var(--accent-gold);
-    margin-bottom: 10px;
-}
-
-.footer-links h4,
-.footer-contact h4 {
-    margin-bottom: 20px;
-    color: var(--accent-gold);
-}
-
-.footer-links ul {
-    list-style: none;
-}
-
-.footer-links a {
-    color: var(--text-white);
-    text-decoration: none;
-    display: block;
-    margin-bottom: 10px;
-    opacity: 0.9;
-    transition: opacity 0.3s;
-}
-
-.footer-links a:hover {
-    opacity: 1;
-}
-
-.footer-contact p {
-    margin-bottom: 10px;
-    opacity: 0.9;
-}
-
-.footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 20px;
-    text-align: center;
-    opacity: 0.8;
 }
 
 /* ========================================

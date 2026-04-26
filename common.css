@@ -9,6 +9,8 @@
 
 /* Colors - From index.css */
 :root {
+    --text-muted: #6b7280;
+    --dark-green: #1f3b28;
     --primary-green: #2F5D3B;
     --secondary-beige: #F5F1E9;
     --accent-gold: #D4AF7F;
@@ -201,15 +203,274 @@ body {
 }
 
 /* Footer - Common */
+
+/********** AUTH / PROFILE STYLES **********/
+
+/* Profile Avatar Container */
+.auth-profile {
+    position: relative;
+    display: inline-block;
+}
+
+/* Profile Trigger (clickable area) */
+.profile-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 2px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.profile-trigger:hover {
+    background: rgba(212, 175, 127, 0.2);
+}
+
+/* Circular Profile Image */
+.profile-avatar-img,
+.profile-avatar-fallback {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent-gold);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+.profile-avatar-fallback {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+    color: var(--text-white);
+    font-weight: 600;
+    font-size: 0.85rem;
+    border: 2px solid var(--accent-gold);
+}
+
+.profile-trigger:hover .profile-avatar-img,
+.profile-trigger:hover .profile-avatar-fallback {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Profile Dropdown Menu */
+.profile-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 220px;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+    border: 1px solid rgba(0,0,0,0.05);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px) scale(0.96);
+    transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 1002;
+    overflow: hidden;
+}
+
+.profile-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+/* Dropdown Header */
+.profile-dropdown-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: linear-gradient(135deg, rgba(47,93,59,0.05), rgba(212,175,127,0.08));
+}
+
+.dropdown-avatar,
+.dropdown-avatar-fallback {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent-gold);
+    flex-shrink: 0;
+}
+
+.dropdown-avatar-fallback {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+    color: var(--text-white);
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.dropdown-user-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.dropdown-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dropdown-email {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Dropdown Divider */
+.profile-dropdown-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent);
+    margin: 0 12px;
+}
+
+/* Dropdown Items */
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+    background: none;
+    width: 100%;
+    font-family: inherit;
+    text-align: left;
+}
+
+.dropdown-item:hover {
+    background: rgba(47, 93, 59, 0.06);
+    color: var(--primary-green);
+    padding-left: 20px;
+}
+
+.dropdown-item.logout-item:hover {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+.dropdown-item span {
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+/* Responsive Auth Adjustments */
+@media (max-width: 768px) {
+    .profile-avatar-img,
+    .profile-avatar-fallback {
+        width: 36px;
+        height: 36px;
+    }
+
+    .profile-dropdown {
+        min-width: 200px;
+        right: -10px;
+    }
+
+    .dropdown-name {
+        font-size: 0.9rem;
+    }
+
+    .dropdown-email {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-dropdown {
+        position: fixed;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-radius: 20px 20px 0 0;
+        transform: translateY(100%);
+        box-shadow: 0 -10px 40px rgba(0,0,0,0.15);
+    }
+
+    .profile-dropdown.show {
+        transform: translateY(0);
+    }
+}
+
+/* Footer - Common */
 .footer {
     background: var(--primary-green);
     color: var(--text-white);
-    text-align: center;
-    padding: 2.5rem 0;
+    padding: 60px 0 20px;
 }
 
 .footer .container p {
     opacity: 0.9;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.footer-brand h3 {
+    color: var(--accent-gold);
+    margin-bottom: 10px;
+}
+
+.footer-links h4,
+.footer-contact h4 {
+    margin-bottom: 20px;
+    color: var(--accent-gold);
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links a {
+    color: var(--text-white);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    opacity: 0.9;
+    transition: opacity 0.3s;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+}
+
+.footer-contact p {
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    text-align: center;
+    opacity: 0.8;
 }
 
 /* Section Title - Common */
@@ -242,6 +503,12 @@ body {
         box-shadow: none;
         background: rgba(245, 241, 233, 0.98);
         margin-top: 0.5rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
     }
 }
 

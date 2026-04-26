@@ -1,187 +1,128 @@
-/* Merit List Page Specific Styles */
+/* Merit Search Page Styles */
 
-/* Hero Section */
-.hero {
-    margin-top: 120px;
-    padding: 140px 0;
-    background: linear-gradient(135deg, var(--primary-green), #3e6f50);
-    color: var(--text-white);
-    text-align: center;
-}
-
-.hero-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 700;
-    margin-bottom: 1rem;
-}
-
-.hero-subtitle {
-    font-size: 1.3rem;
-    max-width: 600px;
-    margin: 0 auto;
-    opacity: 0.95;
-}
-
-/* Search Section */
-.search-section {
-    padding: 80px 0;
+/* Main search area - centered and full height */
+.merit-search {
+    min-height: calc(100vh - 65px - 60px - 300px); /* viewport - topbar - navbar - footer approx */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
     background: var(--secondary-beige);
 }
 
-.search-box {
-    max-width: 800px;
-    margin: 0 auto;
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+/* Search card - clean white card */
+.search-card {
+    background: var(--text-white);
+    border-radius: 20px;
+    box-shadow: var(--shadow-light);
+    padding: 3rem 2.5rem;
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
 }
 
-.search-box input,
-.search-box select {
+.search-card:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+/* Title */
+.search-title {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    color: var(--primary-green);
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+/* Form layout */
+.search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Form groups */
+.form-group {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+.form-group select,
+.form-group input {
     padding: 1rem 1.25rem;
     border: 2px solid #e5e5e5;
     border-radius: 12px;
     font-family: inherit;
     font-size: 1rem;
-    transition: border-color 0.3s ease;
-    min-width: 220px;
-    flex: 1;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: var(--text-white);
+    color: var(--text-dark);
 }
 
-.search-box input:focus,
-.search-box select:focus {
+.form-group select:focus,
+.form-group input:focus {
     outline: none;
     border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(47, 93, 59, 0.1);
 }
 
+/* Search button */
 .search-btn {
     padding: 1rem 2rem;
-    font-size: 1rem;
+    font-size: 1.05rem;
     border-radius: 12px;
+    margin-top: 0.5rem;
+    width: 100%;
 }
 
-/* Toppers Section */
-.toppers-section {
-    padding: 100px 0;
-}
-
-.section-title {
-    text-align: center;
-    font-size: clamp(2rem, 4vw, 2.8rem);
-    color: var(--primary-green);
-    margin-bottom: 4rem;
-    font-weight: 700;
-}
-
-.toppers-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 2.5rem;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.topper-card {
-    background: var(--secondary-beige);
-    border-radius: 24px;
-    box-shadow: var(--shadow-light);
-    padding: 2.5rem 2rem;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.topper-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-hover);
-}
-
-.topper-badge {
-    background: var(--accent-gold);
-    color: var(--text-dark);
-    font-weight: 700;
-    padding: 6px 18px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    margin-bottom: 1.25rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.topper-name {
-    color: var(--primary-green);
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-}
-
-.topper-marks {
-    color: var(--accent-gold);
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-}
-
-.topper-dept {
-    color: var(--text-dark);
-    font-size: 1rem;
-    font-weight: 500;
-    margin-bottom: 0.25rem;
-    opacity: 0.85;
-}
-
-.topper-status {
-    color: var(--primary-green);
-    font-size: 0.9rem;
+/* Result message */
+.search-result {
+    margin-top: 1rem;
     font-weight: 600;
-    margin-top: auto;
-    padding-top: 1rem;
+    font-size: 1rem;
+    min-height: 1.5rem;
+    transition: color 0.3s ease;
 }
 
-.no-results {
-    text-align: center;
-    color: var(--text-dark);
-    font-size: 1.1rem;
-    margin-top: 2rem;
-    opacity: 0.7;
+.search-result.success {
+    color: var(--primary-green);
+}
+
+.search-result.error {
+    color: #c0392b;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .hero {
-        margin-top: 200px;
-        padding: 100px 0;
+    .merit-search {
+        padding: 60px 15px;
     }
 
-    .search-box {
-        flex-direction: column;
-        width: 100%;
+    .search-card {
+        padding: 2rem 1.5rem;
     }
 
-    .search-box input,
-    .search-box select,
-    .search-btn {
-        width: 100%;
-        min-width: unset;
-    }
-
-    .toppers-section {
-        padding: 60px 0;
+    .search-form {
+        gap: 1.25rem;
     }
 }
 
 @media (max-width: 480px) {
-    .container {
-        padding: 0 15px;
+    .search-card {
+        padding: 1.75rem 1.25rem;
+        border-radius: 16px;
     }
 
-    .topper-card {
-        padding: 2rem 1.5rem;
+    .search-title {
+        margin-bottom: 1.5rem;
     }
 }
 

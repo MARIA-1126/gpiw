@@ -1,141 +1,17 @@
-/* ADM Form Page Specific Styles - Base in common.css */
 
-/* Header */
-.top-bar {
-    position: fixed;
-    top: 0;
-    background: rgba(47, 93, 59, 0.95);
-    backdrop-filter: blur(10px);
-    width: 100%;
-    z-index: 1000;
-    padding: 1rem 0;
-}
-
-.top-bar-content {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.logo img {
-    height: 40px;
-}
-
-.college-name {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--white);
-    flex: 1;
-}
-
-.auth-btn {
-    margin-left: auto;
-}
-
-.btn {
-    background: var(--gold);
-    color: var(--dark);
-    padding: 0.7rem 1.5rem;
-    border: none;
-    border-radius: 25px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow);
-}
-
-/* Navbar */
-.navbar {
-    position: fixed;
-    top: 75px;
-    background: rgba(245, 241, 233, 0.95);
-    backdrop-filter: blur(10px);
-    width: 100%;
-    z-index: 999;
-    padding: 1rem 0;
-}
-
-.nav-menu {
-    display: flex;
-    list-style: none;
-    justify-content: center;
-    gap: 2rem;
-}
-
-.nav-link {
-    color: var(--dark);
-    text-decoration: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 25px;
-    font-weight: 500;
-    transition: all 0.3s;
-    display: block;
-}
-
-.nav-link:hover, .nav-link.active {
-    background: var(--green);
-    color: var(--white);
-}
-
-/* Dropdown */
-.dropdown {
-    position: relative;
-}
-
-.dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: var(--beige);
-    min-width: 200px;
-    box-shadow: var(--shadow);
-    border-radius: 10px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s;
-    list-style: none;
-    padding: 0.5rem 0;
-}
-
-.dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.dropdown-menu .nav-link {
-    padding: 1rem 1.5rem;
-    border-radius: 0;
-}
-
-.dropdown-toggle {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-}
-
-.dropdown-icon {
-    font-size: 0.8rem;
-    transition: transform 0.3s;
-}
-
-.dropdown:hover .dropdown-icon {
-    transform: rotate(180deg);
-}
 
 /* Hero - Green BG */
 .hero {
-    background: linear-gradient(135deg, var(--green), #1f4a2e);
-    padding: 140px 0 100px;
-    margin-top: 110px;
+    background: linear-gradient(135deg, var(--primary-green), #1f4a2e);
+   
+   
     text-align: center;
-    color: var(--white);
+    color: var(--text-white);
+    
+    margin-top: 120px;
+    padding: 100px 0;
 }
+
 
 .hero-title {
     font-size: 3rem;
@@ -156,10 +32,10 @@
 .form-container form {
     max-width: 700px;
     margin: 0 auto;
-    background: var(--white);
+    background: var(--text-white);
     padding: 3rem;
     border-radius: 20px;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-hover);
 }
 
 .form-section {
@@ -167,7 +43,7 @@
 }
 
 .form-section h2 {
-    color: var(--green);
+    color: var(--primary-greengreen);
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
     display: flex;
@@ -183,7 +59,7 @@
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
-    color: var(--dark);
+    color: var(--text-dark);
 }
 
 .input-group input,
@@ -201,7 +77,7 @@
 .input-group select:focus,
 .input-group textarea:focus {
     outline: none;
-    border-color: var(--green);
+    border-color: var(--primary-green);
     box-shadow: 0 0 0 3px rgba(47, 93, 59, 0.1);
 }
 
@@ -221,13 +97,13 @@
 }
 
 .radio-group label:hover {
-    background: var(--beige);
+    background: var(--secondary-beige);
 }
 
 /* Submit Button */
 .submit-btn {
-    background: var(--gold);
-    color: var(--dark);
+    background: var(--accent-gold);
+    color: var(--text-dark);
     border: none;
     padding: 1.2rem 2.5rem;
     font-size: 1.1rem;
@@ -240,19 +116,10 @@
 }
 
 .submit-btn:hover {
-    background: var(--green);
-    color: var(--white);
+    background: var(--primary-green);
+    color: var(--text-white);
     transform: translateY(-2px);
-    box-shadow: var(--shadow);
-}
-
-/* Footer */
-.footer {
-    background: var(--green);
-    color: var(--white);
-    text-align: center;
-    padding: 2rem 0;
-    margin-top: 4rem;
+    box-shadow: var(--shadow-hover);
 }
 
 /* Responsive */

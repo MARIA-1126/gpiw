@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -41,8 +41,8 @@
                         <li><a href="hostel.html" class="nav-link">Hostel Admission</a></li>
                     </ul>
                 </li>
-                <li><a href="#" class="nav-link">Facilities</a></li>
-                <li><a href="#" class="nav-link">Faculty</a></li>
+                <li><a href="facilities.html" class="nav-link">Facilities</a></li>
+                <li><a href="faculty.html" class="nav-link">Faculty</a></li>
                 <li class="dropdown">
                     <a href="#" class="nav-link dropdown-toggle">Student Portal <span class="dropdown-icon">▼</span></a>
                     <ul class="dropdown-menu">
@@ -64,7 +64,7 @@
 
     <!-- Form -->
     <main class="form-container">
-        <form id="admission-form">
+        <form id="admission-form" action="#" method="post">
             <section class="form-section">
                 <h2>👤 Personal Information</h2>
                 <div class="input-group">
@@ -77,7 +77,7 @@
                 </div>
                 <div class="input-group">
                     <label for="cnic">CNIC / B-Form *</label>
-                    <input type="text" id="cnic" name="cnic" required>
+                    <input type="text" pattern="[0-9]{13}" placeholder="13 digit CNIC" required>
                 </div>
                 <div class="input-group">
                     <label for="dob">Date of Birth *</label>
@@ -159,8 +159,32 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Government Polytechnic Institute for Women. All Rights Reserved.</p>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>GPIW</h3>
+                    <p>Government Polytechnical Institute For Women</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="admission.html">Admission</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <p><strong>Email:</strong> info@gpiw.edu.pk</p>
+                    <p><strong>Phone:</strong> +92 300 1234567</p>
+                    <p><strong>Address:</strong> Main Campus, City, Pakistan</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 GPIW. All rights reserved.</p>
+            </div>
         </div>
     </footer>
+        <script src="auth.js"></script>
 </body>
 </html>

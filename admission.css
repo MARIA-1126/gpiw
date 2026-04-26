@@ -5,8 +5,9 @@
     
     padding: 140px 0;
     background: linear-gradient(135deg, var(--primary-green), #3e6f50);
-    color: var(--white);
+    color: var(--text-white);
     text-align: center;
+     margin-top: 120px;
 }
 
 .hero-title {
@@ -78,7 +79,7 @@
     background: var(--secondary-beige);
     padding: 2.5rem;
     border-radius: 24px;
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-light);
     transition: all 0.3s ease;
     text-align: center;
      height: 100%;
@@ -91,7 +92,7 @@
 .content-card:hover,
 .course-card:hover {
     transform: translateY(-8px);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-hover);
 }
 
 .content-card h3,
@@ -152,7 +153,7 @@
     width: 2rem;
     height: 2rem;
     background: var(--primary-green);
-    color: var(--white);
+    color: var(--text-white);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -161,10 +162,10 @@
 }
 
 .dates-table-container {
-    background: var(--white);
+    background: var(--text-white);
     padding: 2rem;
     border-radius: 20px;
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-light);
 }
 
 .dates-table-container h3 {
@@ -179,7 +180,7 @@
 
 .dates-table th {
     background: var(--primary-green);
-    color: var(--white);
+    color: var(--text-white);
     padding: 1rem;
     text-align: left;
 }
@@ -203,54 +204,12 @@
     flex-wrap: wrap;
 }
 
-/* Student Portal */
-.portal-form {
-    max-width: 500px;
-    margin: 0 auto;
-    background: var(--white);
-    padding: 3rem;
-    border-radius: 24px;
-    box-shadow: var(--shadow-md);
-    text-align: center;
-}
-
-.form-group {
-    margin-bottom: 2rem;
-    text-align: left;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.75rem;
-    color: var(--primary-green);
-    font-weight: 600;
-}
-
-#student-id {
-    width: 100%;
-    padding: 1.25rem;
-    border: 2px solid #e5e5e5;
-    border-radius: 12px;
-    font-size: 1.1rem;
-    transition: border-color 0.3s;
-}
-
-#student-id:focus {
-    outline: none;
-    border-color: var(--primary-green);
-}
-
-.form-note {
-    margin-top: 1.5rem;
-    color: var(--text-light);
-    font-size: 0.95rem;
-}
 
 /* CTA */
 .cta-section {
     padding: 120px 0;
     background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
-    color: var(--white);
+    color: var(--text-white);
     text-align: center;
 }
 
@@ -263,14 +222,6 @@
     font-size: 1.3rem;
     margin-bottom: 3rem;
     opacity: 0.95;
-}
-
-/* Footer */
-.footer {
-    background: var(--dark-green);
-    color: var(--white);
-    text-align: center;
-    padding: 3rem 0 1rem;
 }
 
 /* Responsive */
@@ -325,5 +276,7 @@
     .portal-form {
         padding: 2rem;
     }
+    
 }
+
 

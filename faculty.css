@@ -1,0 +1,247 @@
+/* Faculty Page Specific Styles */
+
+/* Hero Section */
+.hero {
+    padding: 140px 0;
+    background: linear-gradient(135deg, var(--primary-green), #3e6f50);
+    color: var(--text-white);
+    text-align: center;
+    margin-top: 120px;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.95;
+}
+
+/* Staff Sections */
+.staff-section {
+    padding: 100px 0;
+}
+
+.staff-section.alternate-bg {
+    background: var(--secondary-beige);
+}
+
+.section-title {
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    color: var(--primary-green);
+    margin-bottom: 4rem;
+    font-weight: 700;
+}
+
+/* Staff Grid */
+.staff-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* Staff Card */
+.staff-card {
+    background: var(--text-white);
+    border-radius: 24px;
+    box-shadow: var(--shadow-light);
+    overflow: hidden;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.staff-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.staff-image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.staff-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.staff-content {
+    padding: 1.5rem 2rem 2rem;
+}
+
+.staff-content h3 {
+    color: var(--primary-green);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.staff-role {
+    color: var(--accent-gold);
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.staff-content p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.staff-email {
+    color: var(--primary-green);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    display: inline-block;
+}
+
+/* Principal Section */
+.principal-section {
+    padding: 100px 0;
+    background: var(--secondary-beige);
+}
+
+.principal-card {
+    background: var(--text-white);
+    border-radius: 24px;
+    box-shadow: var(--shadow-light);
+    overflow: hidden;
+    text-align: center;
+    transition: all 0.3s ease;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem;
+}
+
+.principal-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+}
+
+.principal-image {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 1.5rem;
+    border: 4px solid var(--accent-gold);
+}
+
+.principal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.principal-card h3 {
+    color: var(--primary-green);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.principal-card .staff-role {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.principal-card p {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Simple Card (for admin, library, cafeteria) */
+.simple-card {
+    background: var(--text-white);
+    border-radius: 24px;
+    box-shadow: var(--shadow-light);
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.simple-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.simple-card h3 {
+    color: var(--primary-green);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.simple-card .staff-role {
+    color: var(--accent-gold);
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.simple-card p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .staff-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero {
+        margin-top: 200px;
+        padding: 100px 0;
+    }
+
+    .staff-section,
+    .principal-section {
+        padding: 60px 0;
+    }
+
+    .principal-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .principal-image {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .staff-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 2.5rem;
+    }
+}
+

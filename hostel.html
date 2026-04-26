@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hostel Admission - GPIW</title>
-<link rel="stylesheet" href="common.css">
+    <title>Hostel Admission - Government Polytechnic Institute for Women</title>
+    <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="hostel.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header & Navbar -->
+    <!-- Header -->
     <header class="top-bar">
         <div class="container">
             <div class="top-bar-content">
@@ -24,21 +24,22 @@
         </div>
     </header>
 
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
                 <li class="dropdown">
-                    <a href="#" class="nav-link dropdown-toggle active">Admission <span class="dropdown-icon">▼</span></a>
+                    <a href="admission.html" class="nav-link dropdown-toggle active">Admission <span class="dropdown-icon">▼</span></a>
                     <ul class="dropdown-menu">
                         <li><a href="admission.html" class="nav-link">Admission Now</a></li>
                         <li><a href="merit.html" class="nav-link">Merit List</a></li>
                         <li><a href="hostel.html" class="nav-link active">Hostel Admission</a></li>
                     </ul>
                 </li>
-                <li><a href="#" class="nav-link">Facilities</a></li>
-                <li><a href="#" class="nav-link">Faculty</a></li>
+                <li><a href="facilities.html" class="nav-link">Facilities</a></li>
+                <li><a href="faculty.html" class="nav-link">Faculty</a></li>
                 <li class="dropdown">
                     <a href="#" class="nav-link dropdown-toggle">Student Portal <span class="dropdown-icon">▼</span></a>
                     <ul class="dropdown-menu">
@@ -50,137 +51,323 @@
         </div>
     </nav>
 
-    <!-- Hero -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1 class="hero-title">Hostel Admission 2024</h1>
-            <p class="hero-subtitle">Safe & Comfortable Accommodation for Students</p>
+            <h1 class="hero-title">Hostel Admission</h1>
+            <p class="hero-subtitle">Safe &amp; Comfortable Living for Students</p>
         </div>
     </section>
 
-    <!-- Hostel Info -->
-    <section class="section">
+    <!-- Hostel Info Section -->
+    <section class="section info-section">
+        <div class="container">
+            <h2 class="section-title">About Our Hostel</h2>
+            <div class="info-split">
+                <div class="info-image">
+                    <img src="pics/2022-02-13.webp" alt="GPIW Hostel Building">
+                </div>
+                <div class="info-text">
+                    <ul class="info-list">
+                        <li><span class="icon">&#9733;</span> Women-only hostel for a secure and comfortable stay</li>
+                        <li><span class="icon">&#9733;</span> Secure environment with 24/7 security staff</li>
+                        <li><span class="icon">&#9733;</span> Clean and well-maintained rooms</li>
+                        <li><span class="icon">&#9733;</span> Strict discipline system for academic focus</li>
+                        <li><span class="icon">&#9733;</span> Friendly and supportive hostel staff</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hostel Charges Section -->
+    <section class="section alternate-bg charges-section">
+        <div class="container">
+            <h2 class="section-title">Hostel Charges</h2>
+            <div class="charges-grid">
+                <div class="charge-card">
+                    <h3>Admission Fee</h3>
+                    <p class="amount">Rs. 2000</p>
+                    <p class="note">One-time payment</p>
+                </div>
+                <div class="charge-card">
+                    <h3>Monthly Rent</h3>
+                    <p class="amount">Rs. 5000</p>
+                    <p class="note">Per month</p>
+                </div>
+                <div class="charge-card">
+                    <h3>Mess Charges</h3>
+                    <p class="amount">Rs. 3000</p>
+                    <p class="note">Per month</p>
+                </div>
+                <div class="charge-card">
+                    <h3>Security Deposit</h3>
+                    <p class="amount">Rs. 2000</p>
+                    <p class="note">Refundable</p>
+                </div>
+            </div>
+            <div class="highlight-box">
+                <p><strong>&#128073; Estimated Monthly Cost: Rs. 8000 – 10000</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section class="section facilities-section">
         <div class="container">
             <h2 class="section-title">Hostel Facilities</h2>
-            <div class="content-grid">
-                <div class="content-card">
-                    <h3>Capacity</h3>
-                    <ul>
-                        <li>300 Rooms Available</li>
-                        <li>4 Students per Room</li>
-                        <li>Priority for Outstation Students</li>
-                    </ul>
+            <div class="facilities-grid">
+                <div class="facility-card">
+                    <div class="facility-icon">&#127968;</div>
+                    <h3>120 Rooms</h3>
+                    <p>Spacious and well-ventilated rooms for comfortable living.</p>
                 </div>
-                <div class="content-card">
-                    <h3>Facilities</h3>
-                    <ul>
-                        <li>24/7 Security & CCTV</li>
-                        <li>Warden Supervision</li>
-                        <li>Study Rooms & Mess</li>
-                        <li>Laundry & Gym</li>
-                    </ul>
+                <div class="facility-card">
+                    <div class="facility-icon">&#127860;</div>
+                    <h3>Mess / Catering</h3>
+                    <p>Hygenic and nutritious meals served daily.</p>
+                </div>
+                <div class="facility-card">
+                    <div class="facility-icon">&#128090;</div>
+                    <h3>Laundry Facility</h3>
+                    <p>On-campus laundry service for all residents.</p>
+                </div>
+                <div class="facility-card">
+                    <div class="facility-icon">&#128247;</div>
+                    <h3>CCTV Security</h3>
+                    <p>24/7 surveillance for student safety.</p>
+                </div>
+                <div class="facility-card">
+                    <div class="facility-icon">&#128246;</div>
+                    <h3>WiFi Availability</h3>
+                    <p>High-speed internet across the hostel premises.</p>
+                </div>
+                <div class="facility-card">
+                    <div class="facility-icon">&#128214;</div>
+                    <h3>Study Rooms</h3>
+                    <p>Quiet study areas for focused academic work.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Hostel Admission Form -->
-    <section class="section alternate-bg">
+    <!-- Hostel Application Form -->
+    <section class="section alternate-bg form-section" id="apply">
         <div class="container">
             <h2 class="section-title">Hostel Application Form</h2>
-            <form class="hostel-form">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Full Name *</label>
-                        <input type="text" required>
+            <div class="form-container">
+                <form id="hostel-form">
+                    <div class="form-section-inner">
+                        <h3>&#128100; Personal Information</h3>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="hostel-full-name">Full Name *</label>
+                                <input type="text" id="hostel-full-name" name="fullName" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="hostel-father-name">Father Name *</label>
+                                <input type="text" id="hostel-father-name" name="fatherName" required>
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="hostel-cnic">CNIC / B-Form *</label>
+                                <input type="text" id="hostel-cnic" name="cnic" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="hostel-phone">Phone Number *</label>
+                                <input type="tel" id="hostel-phone" name="phone" required>
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="hostel-email">Email *</label>
+                                <input type="email" id="hostel-email" name="email" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="hostel-emergency-contact">Emergency Contact *</label>
+                                <input type="tel" id="hostel-emergency-contact" name="emergencyContact" required>
+                            </div>
+                        </div>
+                        <div class="input-group full-width">
+                            <label for="hostel-address">Address *</label>
+                            <textarea id="hostel-address" name="address" rows="3" required></textarea>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label>Application ID *</label>
-                        <input type="text" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Course</label>
-                        <select>
-                            <option>Diploma Computer Science</option>
-                            <option>Diploma IT</option>
-                            <option>Diploma Electronics</option>
-                            <option>Diploma Mechanical</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Year/Semester</label>
-                        <select>
-                            <option>1st Year</option>
-                            <option>2nd Year</option>
-                            <option>3rd Year</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Permanent Address *</label>
-                        <textarea rows="3" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Phone *</label>
-                        <input type="tel" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group checkbox-group">
-                        <label>
-                            <input type="checkbox" required> I agree to hostel rules & regulations
-                        </label>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary btn-large">Submit Application</button>
-            </form>
-        </div>
-    </section>
 
-    <!-- Fees & Dates -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Fees & Important Dates</h2>
-            <div class="process-content">
-                <div>
-                    <h3>Hostel Fees (Annual)</h3>
-                    <ul>
-                        <li>Room + Mess: ₹25,000</li>
-                        <li>Security Deposit: ₹5,000 (Refundable)</li>
-                        <li>Laundry: ₹3,000 (Optional)</li>
-                    </ul>
-                </div>
-                <div class="dates-table-container">
-                    <h3>Dates</h3>
-                    <table class="dates-table">
-                        <tr><th>Event</th><th>Date</th></tr>
-                        <tr><td>Application Start</td><td>01 Aug 2024</td></tr>
-                        <tr><td>Application End</td><td>15 Aug 2024</td></tr>
-                        <tr><td>Allotment List</td><td>20 Aug 2024</td></tr>
-                        <tr><td>Fee Payment</td><td>25 Aug 2024</td></tr>
-                    </table>
-                </div>
+                    <div class="form-section-inner">
+                        <h3>&#127891; Academic Details</h3>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="hostel-department">Department *</label>
+                                <select id="hostel-department" name="department" required>
+                                    <option value="">Select Department</option>
+                                    <option value="Computer Science">Computer Science</option>
+                                    <option value="Information Technology">Information Technology</option>
+                                    <option value="Electronics">Electronics</option>
+                                    <option value="Mechanical">Mechanical</option>
+                                    <option value="Architecture">Architecture</option>
+                                    <option value="Dress Designing">Dress Designing</option>
+                                    <option value="Commerce">Commerce</option>
+                                    <option value="Office Management">Office Management</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="hostel-year">Year / Semester *</label>
+                                <select id="hostel-year" name="year" required>
+                                    <option value="">Select...</option>
+                                    <option value="1st Year">1st Year</option>
+                                    <option value="2nd Year">2nd Year</option>
+                                    <option value="3rd Year">3rd Year</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="hostel-room-preference">Room Preference *</label>
+                                <select id="hostel-room-preference" name="roomPreference" required>
+                                    <option value="">Select...</option>
+                                    <option value="Single">Single Room</option>
+                                    <option value="Shared">Shared Room (2 Students)</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="hostel-documents">Upload Documents</label>
+                                <input type="file" id="hostel-documents" name="documents" multiple accept=".pdf,.jpg,.png">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit Application</button>
+                </form>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta-section">
+    <!-- Success & Receipt Section (Hidden by default) -->
+    <section class="section success-section" id="success-section" style="display: none;">
         <div class="container">
-            <h2>Questions about Hostel?</h2>
-            <p>Contact our warden office for more information</p>
-            <a href="contact.html" class="btn btn-secondary">Contact Warden</a>
+            <div class="success-message">
+                <h2>&#9989; Application Submitted Successfully</h2>
+                <p>Your hostel application has been received. Please save your receipt below.</p>
+            </div>
+            <div class="receipt-card" id="receipt-card">
+                <div class="receipt-header">
+                    <h3>GPIW Hostel Receipt</h3>
+                    <p>Official Copy</p>
+                </div>
+                <div class="receipt-body">
+                    <p><strong>Student Name:</strong> <span id="receipt-name"></span></p>
+                    <p><strong>Application ID:</strong> <span id="receipt-id"></span></p>
+                    <p><strong>Hostel Name:</strong> GPIW Women Hostel</p>
+                    <p><strong>Room Type:</strong> <span id="receipt-room"></span></p>
+                    <p><strong>Department:</strong> <span id="receipt-dept"></span></p>
+                    <p><strong>Date:</strong> <span id="receipt-date"></span></p>
+                </div>
+            </div>
+            <div class="receipt-actions">
+                <button class="btn btn-download" id="download-btn">&#128190; Download Receipt / ID Card</button>
+                <button type="button" class="btn btn-secondary" id="new-application-btn"></button>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Government Polytechnic Institute for Women. All Rights Reserved.</p>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>GPIW</h3>
+                    <p>Government Polytechnical Institute For Women</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="admission.html">Admission</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <p><strong>Email:</strong> info@gpiw.edu.pk</p>
+                    <p><strong>Phone:</strong> +92 300 1234567</p>
+                    <p><strong>Address:</strong> Main Campus, City, Pakistan</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 GPIW. All rights reserved.</p>
+            </div>
         </div>
     </footer>
+
+    <script>
+        (function() {
+            const form = document.getElementById('hostel-form');
+            const successSection = document.getElementById('success-section');
+            const applySection = document.getElementById('apply');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+               const fullName = document.getElementById('hostel-full-name').value.trim();
+                const roomPref = document.getElementById('hostel-room-preference').value;
+                const dept = document.getElementById('hostel-department').value;
+                const appId = 'GPIW-HOSTEL-' + Math.floor(10000 + Math.random() * 90000);
+                const today = new Date().toLocaleDateString('en-GB');
+
+                document.getElementById('receipt-name').textContent = fullName;
+                document.getElementById('receipt-id').textContent = appId;
+                document.getElementById('receipt-room').textContent = roomPref;
+                document.getElementById('receipt-dept').textContent = dept;
+                document.getElementById('receipt-date').textContent = today;
+
+                applySection.style.display = 'none';
+                successSection.style.display = 'block';
+                successSection.scrollIntoView({ behavior: 'smooth' });
+            });
+
+            document.getElementById('download-btn').addEventListener('click', function() {
+                const name = document.getElementById('receipt-name').textContent;
+                const id = document.getElementById('receipt-id').textContent;
+                const room = document.getElementById('receipt-room').textContent;
+                const dept = document.getElementById('receipt-dept').textContent;
+                const date = document.getElementById('receipt-date').textContent;
+
+                const content = `
+GOVERNMENT POLYTECHNIC INSTITUTE FOR WOMEN
+HOSTEL ADMISSION RECEIPT
+-----------------------------------------
+Student Name: ${name}
+Application ID: ${id}
+Hostel Name: GPIW Women Hostel
+Room Type: ${room}
+Department: ${dept}
+Date: ${date}
+-----------------------------------------
+This is a computer-generated receipt.
+                `.trim();
+
+                const blob = new Blob([content], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = id + '_Receipt.txt';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            });
+
+            document.getElementById('new-application-btn').addEventListener('click', function() {
+                form.reset();
+                successSection.style.display = 'none';
+                applySection.style.display = 'block';
+                applySection.scrollIntoView({ behavior: 'smooth' });
+            });
+        })();
+    </script>
+        <script src="auth.js"></script>
 </body>
 </html>
+
