@@ -1,17 +1,11 @@
-
-
 /* Hero - Green BG */
 .hero {
     background: linear-gradient(135deg, var(--primary-green), #1f4a2e);
-   
-   
     text-align: center;
     color: var(--text-white);
-    
     margin-top: 120px;
     padding: 100px 0;
 }
-
 
 .hero-title {
     font-size: 3rem;
@@ -43,7 +37,7 @@
 }
 
 .form-section h2 {
-    color: var(--primary-greengreen);
+    color: var(--primary-green);
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
     display: flex;
@@ -81,24 +75,7 @@
     box-shadow: 0 0 0 3px rgba(47, 93, 59, 0.1);
 }
 
-.radio-group {
-    display: flex;
-    gap: 2rem;
-}
 
-.radio-group label {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-    padding: 0.8rem;
-    border-radius: 8px;
-    transition: background 0.3s;
-}
-
-.radio-group label:hover {
-    background: var(--secondary-beige);
-}
 
 /* Submit Button */
 .submit-btn {
@@ -124,57 +101,27 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-    .top-bar-content {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-    }
-    
-    .nav-menu {
-        gap: 1rem;
-        flex-wrap: wrap;
-    }
-    
     .hero {
         padding: 130px 0 70px;
     }
-    
+
     .hero-title {
         font-size: 2.2rem;
     }
-    
+
     .form-container form {
         padding: 2rem;
         margin: 0 1rem;
     }
-    
+
     .radio-group {
         flex-direction: column;
         gap: 1rem;
     }
-    
-    .dropdown-menu {
-        position: static;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        background: rgba(245, 241, 233, 0.98);
-        margin-top: 0.5rem;
-    }
 }
 
 @media (max-width: 480px) {
-    .nav-menu {
-        gap: 0.8rem;
-    }
-    
-    .nav-link {
-        padding: 0.6rem 1rem;
-        font-size: 0.9rem;
-    }
-    
-    .college-name {
-        font-size: 1.1rem;
+    .container {
+        padding: 0 15px;
     }
 }
-

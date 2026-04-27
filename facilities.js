@@ -2,8 +2,9 @@
 // Beginner-friendly vanilla JS
 
 (function() {
+
     // Admin mode toggle
-    const isAdmin = true;
+    const isAdmin = localStorage.getItem("isAdmin") === "true";
 
     // Initial posts data
     let posts = [
@@ -37,15 +38,24 @@
     const modalClose = document.getElementById('modal-close');
     const modalForm = document.getElementById('modal-form');
 
+    // safety check (important fix)
+    if (!opportunitiesGrid) return;
+
     // Render posts to the DOM
     function renderPosts() {
         opportunitiesGrid.innerHTML = '';
+
         posts.forEach(function(post) {
             const card = document.createElement('div');
             card.className = 'post-card';
 
-            const imgHtml = '<div class="post-image"><img src="' + post.image + '" alt="' + post.title + '"></div>';
-            const contentHtml = '<div class="post-content">' +
+            const imgHtml =
+                '<div class="post-image">' +
+                '<img src="' + post.image + '" alt="' + post.title + '">' +
+                '</div>';
+
+            const contentHtml =
+                '<div class="post-content">' +
                 '<h3>' + post.title + '</h3>' +
                 '<p>' + post.description + '</p>' +
                 '<span class="post-date">' + formatDate(post.date) + '</span>' +
@@ -64,71 +74,87 @@
 
     // Show/hide admin button
     function checkAdmin() {
-        if (isAdmin) {
+        if (isAdmin && btnAddOpportunity) {
             btnAddOpportunity.style.display = 'inline-block';
         }
     }
 
     // Open modal
     function openModal() {
+        if (!modalOverlay) return;
+
         modalOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
 
     // Close modal
     function closeModal() {
+        if (!modalOverlay || !modalForm) return;
+
         modalOverlay.classList.remove('active');
         document.body.style.overflow = '';
         modalForm.reset();
     }
 
-    // Handle form submit
-    modalForm.addEventListener('submit', function(e) {
-        e.preventDefault();
+    // Handle form submit (FIXED SAFELY)
+    if (modalForm) {
+        modalForm.addEventListener('submit', function(e) {
+            e.preventDefault();
 
-        const titleInput = document.getElementById('post-title');
-        const descInput = document.getElementById('post-desc');
-        const imageInput = document.getElementById('post-image');
+            const titleInput = document.getElementById('post-title');
+            const descInput = document.getElementById('post-desc');
+            const imageInput = document.getElementById('post-image');
 
-        const title = titleInput.value.trim();
-        const description = descInput.value.trim();
-        const file = imageInput.files[0];
+            if (!titleInput || !descInput || !imageInput) return;
 
-        if (!title || !description || !file) {
-            alert('Please fill in all fields and upload an image.');
-            return;
-        }
+            const title = titleInput.value.trim();
+            const description = descInput.value.trim();
+            const file = imageInput.files[0];
 
-        // Use FileReader to create a local preview URL
-        const reader = new FileReader();
-        reader.onload = function(event) {
-            const newPost = {
-                id: posts.length + 1,
-                title: title,
-                description: description,
-                date: new Date().toISOString().split('T')[0],
-                image: event.target.result
+            if (!title || !description || !file) {
+                alert('Please fill in all fields and upload an image.');
+                return;
+            }
+
+            const reader = new FileReader();
+
+            reader.onload = function(event) {
+                const newPost = {
+                    id: Date.now(),
+                    title: title,
+                    description: description,
+                    date: new Date().toLocaleDateString('en-CA'),
+                    image: event.target.result
+                };
+
+                posts.unshift(newPost);
+                renderPosts();
+                closeModal();
             };
 
-            posts.unshift(newPost); // Add to beginning
-            renderPosts();
-            closeModal();
-        };
-        reader.readAsDataURL(file);
-    });
+            reader.readAsDataURL(file);
+        });
+    }
 
-    // Event listeners
-    btnAddOpportunity.addEventListener('click', openModal);
-    modalClose.addEventListener('click', closeModal);
+    // Event listeners (SAFE)
+    if (btnAddOpportunity) {
+        btnAddOpportunity.addEventListener('click', openModal);
+    }
 
-    // Close modal when clicking outside the card
-    modalOverlay.addEventListener('click', function(e) {
-        if (e.target === modalOverlay) {
-            closeModal();
-        }
-    });
+    if (modalClose) {
+        modalClose.addEventListener('click', closeModal);
+    }
+
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', function(e) {
+            if (e.target === modalOverlay) {
+                closeModal();
+            }
+        });
+    }
 
     // Initialize
-    checkAdmin();
     renderPosts();
+    checkAdmin();
+
 })();

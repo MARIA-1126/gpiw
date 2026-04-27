@@ -1,102 +1,5 @@
 /* Contact Page Specific Styles - Base in common.css */
 
-/* ========================================
-   1-2. HEADER & NAVIGATION (Identical to other pages)
-   ======================================== */
-   
-
-.top-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(47, 93, 59, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    padding: 8px 0;
-}
-
-.top-bar-content {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 20px;
-}
-
-.logo img {
-    height: 45px;
-    width: auto;
-}
-
-.college-name {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--text-white);
-}
-
-.auth-btn {
-    margin-left: auto;
-}
-
-.btn {
-    background: var(--primary-green);
-    color: var(--text-white);
-    padding: 12px 30px;
-    border: none;
-    border-radius: 25px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-family: inherit;
-    text-decoration: none;
-    display: inline-block;
-}
-
-.auth-btn .btn {
-    background: var(--accent-gold);
-    color: var(--text-dark);
-}
-
-.btn:hover {
-    background: var(--accent-gold);
-    color: var(--text-dark);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-light);
-}
-
-.navbar {
-    position: fixed;
-    top: 65px;
-    left: 0;
-    width: 100%;
-    background: rgba(245, 241, 233, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 999;
-    padding: 15px 0;
-}
-
-.nav-menu {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    gap: 40px;
-}
-
-.nav-link {
-    text-decoration: none;
-    color: var(--text-dark);
-    font-weight: 500;
-    padding: 10px 20px;
-    border-radius: 25px;
-    transition: all 0.3s ease;
-}
-
-.nav-link:hover,
-.nav-link.active {
-    background: var(--primary-green);
-    color: var(--text-white);
-}
-
 /* Section Title */
 .section-title {
     text-align: center;
@@ -358,17 +261,6 @@
    RESPONSIVE DESIGN
    ======================================== */
 @media (max-width: 768px) {
-    .top-bar-content {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-
-    .nav-menu {
-        gap: 20px;
-        flex-wrap: wrap;
-    }
-
     .contact-hero {
         height: 70vh;
         margin-top: 150px;
@@ -413,9 +305,4 @@
     .hero-title {
         font-size: 2.2rem;
     }
-
-    .nav-menu {
-        gap: 15px;
-    }
 }
-

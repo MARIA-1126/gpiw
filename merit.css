@@ -8,6 +8,8 @@
     justify-content: center;
     padding: 80px 20px;
     background: var(--secondary-beige);
+    margin-top: 10%;
+   
 }
 
 /* Search card - clean white card */
@@ -116,6 +118,9 @@
 }
 
 @media (max-width: 480px) {
+    .merit-search {
+       margin-top: 20%;
+    }
     .search-card {
         padding: 1.75rem 1.25rem;
         border-radius: 16px;

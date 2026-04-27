@@ -7,7 +7,7 @@
     display: flex;
     align-items: center;
     overflow: hidden;
-     margin-top: 120px;
+    margin-top: 120px;
 }
 
 .hero-bg {
@@ -103,6 +103,7 @@
     gap: 30px;
     justify-content: center;
 }
+
 .card {
     background: var(--text-white);
     border-radius: 20px;
@@ -110,11 +111,11 @@
     padding: 30px;
     flex: 1 1 300px;
     max-width: 350px;
-      display: flex;
+    display: flex;
     flex-direction: column;
-   
     transition: all 0.3s ease;
 }
+
 .card-image {
     height: 200px;
     position: relative;
@@ -128,6 +129,7 @@
     height: 100%;
     object-fit: cover;
 }
+
 .learn-more {
     font-size: 0.9rem;
     text-align: center;
@@ -167,7 +169,7 @@
 }
 
 /* Buttons */
-.btn  {
+.btn {
     background: var(--primary-green);
     color: var(--text-white);
     padding: 12px 30px;
@@ -180,15 +182,12 @@
     margin-top: auto;
 }
 
-
-
 .btn:hover {
     background: var(--accent-gold);
     color: var(--text-dark);
     transform: translateY(-2px);
     box-shadow: var(--shadow-light);
 }
-
 
 .admission-btn {
     background: var(--accent-gold);
@@ -311,48 +310,26 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .top-bar-content {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .college-name {
-        font-size: 1.4rem;
-    }
-    
-    .nav-menu {
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
-    }
-    
     .hero-title {
         font-size: 2.5rem;
     }
-    
+
     .hero-slogan {
         font-size: 1.2rem;
     }
-    
+
     .about-content {
         flex-direction: column;
         gap: 40px;
         text-align: center;
     }
-    
-    .stats-grid {
-        gap: 40px;
-    }
-    
+
     .stats-grid {
         flex-direction: column;
         align-items: center;
+        gap: 40px;
     }
-    
-    .card {
-        min-width: 280px;
-    }
-    
+
     .section-title {
         font-size: 2rem;
     }
@@ -362,21 +339,12 @@
     .container {
         padding: 0 15px;
     }
-    
+
     .hero {
         height: 80vh;
     }
-    
+
     .hero-title {
         font-size: 2rem;
-    }
-    
-    .nav-menu {
-        gap: 15px;
-    }
-    
-    .nav-link {
-        padding: 8px 15px;
-        font-size: 0.9rem;
     }
 }

@@ -75,6 +75,7 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    object-position: center;
 }
 
 .facility-content {
@@ -193,6 +194,7 @@
     align-items: center;
     justify-content: center;
     padding: 20px;
+      cursor: pointer;
 }
 
 .modal-overlay.active {
@@ -207,6 +209,7 @@
     max-width: 500px;
     overflow: hidden;
     animation: modalSlideIn 0.3s ease;
+     cursor: default;
 }
 
 @keyframes modalSlideIn {
@@ -311,7 +314,12 @@
 /* ========================================
    RESPONSIVE DESIGN
    ======================================== */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+    .facilities-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+   @media (max-width: 768px) {
     .hero {
         padding: 140px 0 80px;
     }

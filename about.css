@@ -6,12 +6,6 @@ body {
 }
 
 /* ========================================
-   1-2. HEADER & NAVIGATION (Exact copy from homepage)
-   ======================================== */
-
-
-
-/* ========================================
    4,5,9. TWO-COLUMN SECTIONS (Intro, Principal, History)
    ======================================== */
 .institute-intro,
@@ -86,19 +80,17 @@ blockquote {
    6. VISION & MISSION CARDS
    ======================================== */
 .vision-mission {
-     background: var(--secondary-beige);
-     padding: 100px 0;
+    background: var(--secondary-beige);
+    padding: 100px 0;
 }
 
 .vm-grid {
-    
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
 }
 
 .vm-card {
-   
     padding: 50px 40px;
     border-radius: 20px;
     box-shadow: var(--shadow-light);
@@ -207,6 +199,7 @@ blockquote {
     max-width: 100%;
     display: block;
 }
+
 .card-image {
     width: 100%;
     height: 200px;
@@ -226,11 +219,11 @@ blockquote {
     transform: scale(1.05);
 }
 
- .stat {
+.stat {
     text-align: center;
 }
 
-  .stat h3 {
+.stat h3 {
     font-size: 3.5rem;
     color: var(--primary-green);
     margin-bottom: 10px;
@@ -288,29 +281,18 @@ blockquote {
 }
 
 /* ========================================
-   RESPONSIVE DESIGN (Beginner-friendly media queries)
+   RESPONSIVE DESIGN
    ======================================== */
 @media (max-width: 768px) {
-    .top-bar-content {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-    
-    .nav-menu {
-        gap: 20px;
-        flex-wrap: wrap;
-    }
-    
     .about-hero {
         margin-top: 150px;
         height: 70vh;
     }
-    
+
     .hero-title {
         font-size: 2.8rem;
     }
-    
+
     .intro-content,
     .principal-content,
     .history-content {
@@ -318,27 +300,27 @@ blockquote {
         gap: 40px;
         text-align: center;
     }
-    
+
     .vm-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .stats-grid {
         gap: 30px;
         flex-direction: column;
         align-items: center;
     }
-    
+
     .stat h3 {
         font-size: 2.8rem;
     }
-    
+
     .footer-content {
         grid-template-columns: 1fr;
         gap: 30px;
         text-align: center;
     }
-    
+
     .section-title {
         font-size: 2rem;
     }
@@ -348,25 +330,20 @@ blockquote {
     .container {
         padding: 0 15px;
     }
-    
+
     .hero-title {
         font-size: 2.2rem;
     }
-    
+
     .hero-slogan {
         font-size: 1.2rem;
     }
-    
-    .nav-menu {
-        gap: 15px;
-    }
-    
+
     .values-grid {
         grid-template-columns: 1fr;
     }
-    .section-title 
-    
-    { font-size: 1.8rem; }}
 
-
-
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
